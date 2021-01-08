@@ -1,0 +1,28 @@
+.nav_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_title {
+  display: inline-block;
+}
+
+.nav_menu {
+  display: flex;
+}
+
+.nav_project {
+  margin-right: 4rem;
+}
+
+.nav_authorize {
+  display: flex;
+}
+
+.nav_li {
+  list-style: none;
+}
+
+.nav_li:first-child {
+  margin-right: 2rem;
+}
