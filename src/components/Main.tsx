@@ -1,7 +1,7 @@
-import styles from "../../styles/Main.module.css";
+import styles from "../../styles/Main.module.scss";
 import Banner from "./Banner";
 
-const Main = () => {
+const Main: React.FC = () => {
   return (
     <>
       <div className={styles.main_wrap}>

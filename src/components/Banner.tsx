@@ -1,7 +1,7 @@
-import styles from "../../styles/Banner.module.css";
+import styles from "../../styles/Banner.module.scss";
 import Link from "next/link";
 
-const Banner = () => {
+const Banner: React.FC = () => {
   return (
     <div className={styles.banner_wrap}>
       <div className={styles.banner_illust}>
@@ -16,11 +16,11 @@ const Banner = () => {
           <br />
           어쩌구 저쩌구 두 줄 정도로 말 만들기
         </div>
-        <div className={styles.banner_button}>
-          <Link href="/overview">
-            <a className={styles.banner_buttonName}>프로젝트 시작하기</a>
-          </Link>
-        </div>
+        <Link href="/overview">
+          <a className={styles.banner_buttonName}>
+            <div className={styles.banner_button}>프로젝트 시작하기</div>
+          </a>
+        </Link>
       </div>
     </div>
   );

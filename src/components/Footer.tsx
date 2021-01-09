@@ -1,6 +1,6 @@
-import styles from "../../styles/Footer.module.css";
+import styles from "../../styles/Footer.module.scss";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <div className={styles.footer_wrap}>
       <div className={styles.footer_left}>

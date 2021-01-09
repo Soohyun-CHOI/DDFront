@@ -1,7 +1,7 @@
-import styles from "../../styles/Navbar.module.css";
+import styles from "../../styles/Navbar.module.scss";
 import Link from "next/link";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   return (
     <div className={styles.nav_wrap}>
       <div className={styles.nav_titleWrap}>

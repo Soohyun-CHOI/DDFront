@@ -1,13 +1,16 @@
 import Navbar from "./Navbar";
-import styles from "../../styles/Layout.module.css";
-import Main from "./Main";
+import styles from "../../styles/Layout.module.scss";
 import Footer from "./Footer";
 
-const Layout = (props) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<Props> = ({ children }) => {
   return (
     <div className={styles.container}>
       <Navbar />
-      {props.children}
+      {children}
       <Footer />
     </div>
   );
