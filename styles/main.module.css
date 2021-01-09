@@ -6,3 +6,9 @@
 .main_illust {
   border: 1px solid black;
 }
+
+.main_title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 3rem 0 8rem;
+}

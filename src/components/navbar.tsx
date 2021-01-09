@@ -1,10 +1,14 @@
-import styles from "../../styles/navbar.module.css";
+import styles from "../../styles/Navbar.module.css";
 import Link from "next/link";
 
 const Navbar = () => {
   return (
     <div className={styles.nav_wrap}>
-      <div className={styles.nav_title}>DataDuck</div>
+      <div className={styles.nav_titleWrap}>
+        <Link href="/">
+          <a className={styles.nav_title}>DataDuck</a>
+        </Link>
+      </div>
       <div className={styles.nav_menu}>
         <div className={styles.nav_project}>프로젝트</div>
         <div className={styles.nav_authorize}>

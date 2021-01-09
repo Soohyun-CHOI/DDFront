@@ -1,0 +1,14 @@
+.footer_wrap {
+  margin: 6rem 0 4rem;
+  border-top: 1px solid lightgrey;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer_left {
+  margin-top: 2rem;
+}
+
+.footer_right {
+  margin-top: 1rem;
+}

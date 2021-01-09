@@ -1,10 +1,17 @@
 .nav_wrap {
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 2rem;
+}
+
+.nav_titleWrap {
+  display: inline-block;
 }
 
 .nav_title {
-  display: inline-block;
+  text-decoration: none;
 }
 
 .nav_menu {
