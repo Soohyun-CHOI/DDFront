@@ -17,8 +17,16 @@ const Menu: React.FC<MenuProps> = ({ menuInfo, submenu }) => {
             </div>
           </a>
         </Link>
+      ) : menuInfo.chapter === "00" ? (
+        <Link href="/overview">
+          <a className={styles.main_menuWrap}>
+            <div className={styles.main_menu}>
+              {menuInfo.chapter}. {menuInfo.name}
+            </div>
+          </a>
+        </Link>
       ) : (
-        <Link href="/">
+        <Link href={"/lol/" + menuInfo.chapter}>
           <a className={styles.main_menuWrap}>
             <div className={styles.main_menu}>
               {menuInfo.chapter}. {menuInfo.name}
@@ -29,8 +37,8 @@ const Menu: React.FC<MenuProps> = ({ menuInfo, submenu }) => {
       {submenu &&
         submenu.map((item) => {
           return (
-            <Link href="/">
-              <a key={item.number} className={styles.sub_menuWrap}>
+            <Link href="/" key={item.number}>
+              <a className={styles.sub_menuWrap}>
                 <div className={styles.sub_menu}>
                   {item.chapter}-{item.number}. {item.name}
                 </div>

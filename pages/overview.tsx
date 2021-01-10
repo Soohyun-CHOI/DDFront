@@ -60,7 +60,7 @@ const Overview: React.FC = () => {
         contentDetail={contentDetail5}
         isContentImage={false}
       />
-      <Link href="/">
+      <Link href="/lol/[...slug]" as="/lol/01">
         <a className={styles.start_btnWrap}>
           <div className={styles.start_btn}>시작하기</div>
         </a>

@@ -1,9 +1,10 @@
 import styles from "../../styles/Navbar.module.scss";
 import Link from "next/link";
+import NavbarLayout from "./NavbarLayout";
 
 const Navbar: React.FC = () => {
   return (
-    <div className={styles.nav_wrap}>
+    <NavbarLayout>
       <div className={styles.nav_titleWrap}>
         <Link href="/">
           <a className={styles.nav_title}>DataDuck</a>
@@ -16,7 +17,7 @@ const Navbar: React.FC = () => {
           <li className={styles.nav_li}>회원가입</li>
         </div>
       </div>
-    </div>
+    </NavbarLayout>
   );
 };
 
