@@ -1,9 +1,69 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+@font-face {
+  font-family: 'NEXON Lv2 Gothic Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-body {
-  margin: 0;
+@font-face {
+  font-family: 'NEXON Lv2 Gothic Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NEXON Lv2 Gothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-bold: "NEXON Lv2 Gothic Bold";
+$font-regular: "NEXON Lv2 Gothic";
+$font-light: "NEXON Lv2 Gothic Light";
+
+$color-black: #333333;
+$color-blue: #5a9ca1;
+$color-red: #D48181;
+$color-gray: #dcdcdc;
+
+$border: 1px solid $color-gray;
+
+@mixin flex-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-col-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin highlight {
+  background: linear-gradient(to top, rgba(90, 156, 161, 0.3) 50%, transparent 50%);
+}
+
+@mixin button {
+  border: 1px solid;
+  border-radius: 100px;
+  background: white;
+  font-family: $font-bold;
+}
+
+@mixin button-blue {
+  @include button;
+  color: $color-blue;
+  transition-duration: 0.2s;
+
+  &:hover {
+    background: rgba(90, 156, 161, 0.1);
+  }
+}
+
+@mixin button-red {
+  @include button;
+  color: $color-red;
 }

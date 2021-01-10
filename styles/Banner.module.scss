@@ -1,8 +1,11 @@
+@import "globals";
+
 .banner_wrap {
+  @include flex-box;
+  height: 30vw;
   margin-top: 4rem;
-  border: 1px solid grey;
-  display: flex;
-  height: 20rem;
+  border: $border;
+  border-radius: 3px;
 }
 
 .banner_illust {
@@ -10,33 +13,38 @@
 }
 
 .banner_content {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include flex-col-box;
   align-items: flex-end;
   padding-right: 3rem;
 }
 
-.banner_subtitle {
-  text-align: right;
-  color: gray;
-  font-size: 0.8rem;
+.banner_title {
+  margin-top: 1rem;
+  font-family: $font-bold;
+  font-size: 2rem;
+  color: $color-black;
 }
 
-.banner_button {
-  text-align: center;
-  line-height: 2.5rem;
-  width: 11rem;
-  height: 2.5rem;
-  color: #5a9ca1;
-  border: 1px solid #5a9ca1;
-  border-radius: 20px;
-  font-weight: bold;
+.banner_subtitle {
+  margin: 0.5rem 0;
+  font-family: $font-light;
   font-size: 1rem;
+  color: $color-black;
+  text-align: right;
+  line-height: 1.375rem;
 }
 
 .banner_buttonName {
   text-decoration: none;
   margin-top: 2rem;
+}
+
+.banner_button {
+  @include button-blue;
+  width: 12.5rem;
+  padding: 0.75rem 0;
+  text-align: center;
+
+  font-family: $font-bold;
+  font-size: 1.125rem;
 }

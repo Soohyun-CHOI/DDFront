@@ -1,6 +1,7 @@
+@import "globals";
+
 .main_wrap {
-  margin: 2rem 0;
-  text-align: center;
+  @include flex-col-box;
 }
 
 .main_illust {
@@ -8,7 +9,11 @@
 }
 
 .main_title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 3rem 0 8rem;
+  font-family: $font-bold;
+  font-size: 2.5rem;
+  color: $color-black;
+}
+
+.main_highlight {
+  @include highlight;
 }
