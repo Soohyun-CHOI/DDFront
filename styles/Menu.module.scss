@@ -1,0 +1,42 @@
+.main_menuWrap {
+  text-decoration: none;
+  &:visited {
+    color: black;
+  }
+}
+
+.main_menu {
+  border-bottom: 1px solid lightgrey;
+  padding: 1rem 0 1rem 1rem;
+  &:hover {
+    font-weight: bold;
+    color: #5a9ca1;
+    background-color: rgba(90, 156, 161, 0.05);
+  }
+}
+
+.sub_menuWrap {
+  text-decoration: none;
+  &:visited {
+    color: black;
+  }
+}
+
+.sub_menu {
+  border-bottom: 1px solid lightgrey;
+  padding: 1rem 0 1rem 2rem;
+  &:hover {
+    font-weight: bold;
+    color: #5a9ca1;
+    background-color: rgba(90, 156, 161, 0.05);
+  }
+}
+
+.plus_menu {
+  padding: 1rem 0 1rem 1rem;
+  color: #5a9ca1;
+  &:hover {
+    background-color: rgba(90, 156, 161, 0.05);
+    font-weight: bold;
+  }
+}
