@@ -12,7 +12,7 @@ const Main: React.FC = () => {
           className={styles.main_illust}
         />
         <div className={styles.main_title}>
-          1시간으로 끝내는 데이터 분석 프로젝트
+            <span className={styles.main_highlight}>1시간</span>으로 끝내는 데이터 분석 프로젝트
         </div>
       </div>
       <Banner />

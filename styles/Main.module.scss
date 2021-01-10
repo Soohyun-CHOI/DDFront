@@ -9,7 +9,11 @@
 }
 
 .main_title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 3rem 0 8rem;
+  font-family: $font-bold;
+  font-size: 2.25rem;
+  color: $color-black;
+}
+
+.main_highlight {
+  @include highlight;
 }

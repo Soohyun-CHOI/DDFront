@@ -24,7 +24,7 @@ $font-regular: "NEXON Lv2 Gothic";
 $font-light: "NEXON Lv2 Gothic Light";
 
 $color-black: #333333;
-$color-blue: #5A9CA1;
+$color-blue: #5a9ca1;
 $color-red: #D48181;
 $color-gray: #DCDCDC;
 
@@ -40,6 +40,10 @@ $bolder: 1px solid $color-gray;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@mixin highlight {
+  background: linear-gradient(to top, rgba(90, 156, 161, 0.3) 50%, transparent 50%);
 }
 
 @mixin button {
