@@ -3,7 +3,7 @@
 .nav_wrap {
   @include flex-box;
   padding: 0.75rem 0;
-  border-bottom: $bolder;
+  border-bottom: $border;
 }
 
 .nav_title {
@@ -23,7 +23,7 @@
 
 .nav_project {
   padding-right: 2rem;
-  border-right: $bolder;
+  border-right: $border;
 }
 
 .nav_authorize {
