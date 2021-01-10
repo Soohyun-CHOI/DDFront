@@ -1,35 +1,37 @@
-.nav_wrap {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid lightgrey;
-  padding-bottom: 2rem;
-}
+@import "globals";
 
-.nav_titleWrap {
-  display: inline-block;
+.nav_wrap {
+  @include flex-box;
+  padding: 0.75rem 0;
+  border-bottom: $bolder;
 }
 
 .nav_title {
+  font-family: $font-regular;
+  font-size: 1.125rem;
+  color: $color-black;
   text-decoration: none;
 }
 
 .nav_menu {
-  display: flex;
+  @include flex-box;
+  justify-content: flex-end;
+  font-family: $font-light;
+  font-size: 0.875rem;
+  color: $color-black;
 }
 
 .nav_project {
-  margin-right: 4rem;
+  padding-right: 2rem;
+  border-right: $bolder;
 }
 
 .nav_authorize {
-  display: flex;
+  @include flex-box;
+  justify-content: flex-end;
 }
 
 .nav_li {
   list-style: none;
-}
-
-.nav_li:first-child {
-  margin-right: 2rem;
+  margin-left: 2rem;
 }

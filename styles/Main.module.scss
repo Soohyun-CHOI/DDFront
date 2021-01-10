@@ -1,6 +1,7 @@
+@import "globals";
+
 .main_wrap {
-  margin: 2rem 0;
-  text-align: center;
+  @include flex-col-box;
 }
 
 .main_illust {
