@@ -1,17 +1,25 @@
+@import "globals";
+
 .title_wrap {
   margin: 2rem 0 6rem;
 }
 
 .sub_title {
-  color: #5a9ca1;
-  font-weight: bold;
+  font-family: $font-regular;
+  font-size: 1rem;
+  color: $color-blue;
 }
 
 .main_title {
-  padding-top: 0.5rem;
-  font-size: 2rem;
-  font-weight: bold;
+  margin-top: 0.5rem;
+  font-family: $font-bold;
+  font-size: 2.25rem;
+  color: $color-black;
 }
 
 .introduction {
+  line-height: 1.5rem;
+  font-family: $font-light;
+  font-size: 0.9rem;
+  color: $color-black;
 }

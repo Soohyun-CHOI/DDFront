@@ -1,39 +1,30 @@
-.overview_left {
-  width: 70%;
+@import "styles/globals";
+
+@mixin overview_btn {
+  @include button-blue;
+  width: 8rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin: 1.25rem 0;
+  font-family: $font-bold;
+  font-size: 1rem;
 }
 
 .download_btnWrap {
-  text-decoration: none;
-  margin-top: 2rem;
   display: inline-block;
+  text-decoration: none;
 }
 
 .download_btn {
-  text-align: center;
-  line-height: 2.5rem;
-  width: 8rem;
-  height: 2.5rem;
-  color: #5a9ca1;
-  border: 1px solid #5a9ca1;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 1rem;
+  @include overview_btn;
 }
 
 .start_btnWrap {
+  display: inline-block;
   text-decoration: none;
   margin-top: 4rem;
-  display: inline-block;
 }
 
 .start_btn {
-  text-align: center;
-  line-height: 2.5rem;
-  width: 8rem;
-  height: 2.5rem;
-  color: #5a9ca1;
-  border: 1px solid #5a9ca1;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 1rem;
+  @include overview_btn;
 }
