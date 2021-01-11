@@ -1,8 +1,8 @@
-import Content from "../src/components/Content";
-import Title from "../src/components/Title";
+import Content from "../src/components/project/Content";
+import Title from "../src/components/project/Title";
 import Link from "next/link";
 import styles from "./styles/overview.module.scss";
-import LayoutSection from "../src/components/LayoutSection";
+import LayoutSection from "../src/components/project/LayoutSection";
 
 const subTitle = "00. 들어가기 전에"; // 메인 메뉴의 서브 타이틀
 const mainTitle = "LOL 승패 예측 프로젝트";

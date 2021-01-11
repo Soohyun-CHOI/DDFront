@@ -1,4 +1,4 @@
-import styles from "../../styles/Main.module.scss";
+import styles from "./styles/Main.module.scss";
 import Banner from "./Banner";
 
 const Main = () => {

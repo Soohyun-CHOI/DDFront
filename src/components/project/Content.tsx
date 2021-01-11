@@ -1,4 +1,4 @@
-import styles from "../../styles/Content.module.scss";
+import styles from "./styles/Content.module.scss";
 
 interface ContentProps {
   contentTitle: string;

@@ -1,4 +1,4 @@
-import styles from "../../styles/Title.module.scss";
+import styles from "./styles/Title.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
 interface TitleProps {

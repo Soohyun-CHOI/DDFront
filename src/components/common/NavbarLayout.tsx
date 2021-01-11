@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import styles from "../../styles/NavbarLayout.module.scss";
+import styles from "./styles/NavbarLayout.module.scss";
 
 interface Props {
   children: React.ReactNode;

@@ -1,11 +1,4 @@
-@import "globals";
-
-.nav_wrap {
-  @include flex-box;
-  margin-bottom: 2rem;
-  padding: 0.75rem 0;
-  border-bottom: $border;
-}
+@import "../../../../styles/globals.scss";
 
 .nav_title {
   font-family: $font-regular;

@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
-import { FC } from "react";
-import LayoutSection from "../../src/components/LayoutSection";
-import Title from "../../src/components/Title";
+import LayoutSection from "../../src/components/project/LayoutSection";
+import Title from "../../src/components/project/Title";
 
 const subTitle = "LOL 승패 예측 프로젝트";
 let subTitle2;

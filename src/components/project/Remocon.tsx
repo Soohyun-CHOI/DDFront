@@ -1,4 +1,4 @@
-import styles from "../../styles/Remocon.module.scss";
+import styles from "./styles/Remocon.module.scss";
 
 interface Props {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-import styles from "../../styles/LayoutSection.module.scss";
+import styles from "./styles/LayoutSection.module.scss";
 import Menu from "./Menu";
 import Remocon from "./Remocon";
 
@@ -18,7 +18,7 @@ const menuInfo1 = {
 
 const menuInfo2 = {
   chapter: "02",
-  name: "EDA 전처리",
+  name: "EDA와 전처리",
 };
 
 const menuInfo3 = {
@@ -71,7 +71,7 @@ const LayoutSection = ({ children }: Props) => {
           <Remocon>
             <Menu menuInfo={menuInfo0} />
             <Menu menuInfo={menuInfo1} />
-            <Menu menuInfo={menuInfo2} submenu={Submenu2}/>
+            <Menu menuInfo={menuInfo2} submenu={Submenu2} />
             <Menu menuInfo={menuInfo3} submenu={Submenu3} />
             <Menu menuInfo={menuInfo4} submenu={Submenu4} />
             <Menu menuInfo={menuInfo5} />
