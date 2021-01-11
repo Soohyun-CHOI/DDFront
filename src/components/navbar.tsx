@@ -2,7 +2,7 @@ import styles from "../../styles/Navbar.module.scss";
 import Link from "next/link";
 import NavbarLayout from "./NavbarLayout";
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   return (
     <NavbarLayout>
       <div className={styles.nav_titleWrap}>

@@ -6,11 +6,11 @@ interface MenuProps {
   submenu?: Array<{ chapter: string; number: number; name: string }>;
 }
 
-const Menu: React.FC<MenuProps> = ({ menuInfo, submenu }) => {
+const Menu = ({ menuInfo, submenu }: MenuProps) => {
   return (
     <>
       {menuInfo.plus ? (
-        <Link href="/">
+        <Link href="/lol/plus">
           <a className={styles.main_menuWrap}>
             <div className={styles.plus_menu}>
               {menuInfo.chapter}. {menuInfo.name}

@@ -52,7 +52,7 @@ const Submenu1 = [
   { chapter: "04", number: 2, name: "모델 검증" },
 ];
 
-const LayoutSection: React.FC<Props> = ({ children }) => {
+const LayoutSection = ({ children }: Props) => {
   return (
     <>
       <div className={styles.section_wrap}>

@@ -4,6 +4,10 @@
 
 .sub_titleWrap {
   text-decoration: none;
+  display: inline-block;
+  &:first-child {
+    margin-right: 1rem;
+  }
 }
 
 .sub_title {

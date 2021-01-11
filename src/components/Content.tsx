@@ -7,12 +7,12 @@ interface ContentProps {
   difficulty_num?: number;
 }
 
-const Content: React.FC<ContentProps> = ({
+const Content = ({
   contentTitle,
   contentDetail,
   isContentImage,
   difficulty_num,
-}) => {
+}: ContentProps) => {
   return (
     <div className={styles.content_wrap}>
       <div className={styles.content_title}>{contentTitle}</div>
@@ -23,6 +23,7 @@ const Content: React.FC<ContentProps> = ({
             if (index < difficulty_num) {
               return (
                 <svg
+                  key={index}
                   className={styles.content_image}
                   width="27"
                   height="27"
@@ -36,6 +37,7 @@ const Content: React.FC<ContentProps> = ({
             } else {
               return (
                 <svg
+                  key={index}
                   className={styles.content_image}
                   width="27"
                   height="27"

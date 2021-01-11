@@ -5,7 +5,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const NavbarLayout: React.FC<Props> = ({ children }) => {
+const NavbarLayout = ({ children }: Props) => {
   const router = useRouter();
   const isRootpage = router.pathname === "/" ? true : false;
 

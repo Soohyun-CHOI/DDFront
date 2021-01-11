@@ -4,7 +4,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Remocon: React.FC<Props> = ({ children }) => {
+const Remocon = ({ children }: Props) => {
   return <div className={styles.Remocon_wrap}>{children}</div>;
 };
 

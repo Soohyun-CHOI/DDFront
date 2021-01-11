@@ -6,7 +6,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Layout: React.FC<Props> = ({ children }) => {
+const Layout = ({ children }: Props) => {
   return (
     <div className={styles.container}>
       <Navbar />
