@@ -25,7 +25,7 @@ $font-light: "NEXON Lv2 Gothic Light";
 
 $color-black: #333333;
 $color-blue: #5a9ca1;
-$color-red: #D48181;
+$color-red: #d48181;
 $color-gray: #dcdcdc;
 
 $border: 1px solid $color-gray;
@@ -50,6 +50,7 @@ $border: 1px solid $color-gray;
   border: 1px solid;
   border-radius: 100px;
   background: white;
+  text-align: center;
   font-family: $font-bold;
 }
 
@@ -59,11 +60,15 @@ $border: 1px solid $color-gray;
   transition-duration: 0.2s;
 
   &:hover {
-    background: rgba(90, 156, 161, 0.1);
+    background: rgba(90, 156, 161, 0.05);
   }
 }
 
 @mixin button-red {
   @include button;
   color: $color-red;
+
+  &:hover {
+    background: rgba(212, 129, 129, 0.05);
+  }
 }

@@ -1,4 +1,6 @@
+@import "globals";
+
 .Remocon_wrap {
-  border: 1px solid lightgrey;
-  margin-top: 2rem;
+  border: $border;
+  border-radius: 3px;
 }
