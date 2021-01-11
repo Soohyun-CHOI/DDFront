@@ -18,7 +18,7 @@ const menuInfo1 = {
 
 const menuInfo2 = {
   chapter: "02",
-  name: "EDA와 전처리",
+  name: "EDA 전처리",
 };
 
 const menuInfo3 = {
@@ -42,14 +42,24 @@ const menuInfo6 = {
   plus: true,
 };
 
-const Submenu0 = [
-  { chapter: "03", number: 1, name: "앙상블 모델" },
-  { chapter: "03", number: 2, name: "모델 검증" },
+const Submenu2 = [
+  { chapter: "02", number: 1, name: "결측값" },
+  { chapter: "02", number: 2, name: "데이터프레임 병합하기" },
+  { chapter: "02", number: 3, name: "통계분석" },
 ];
 
-const Submenu1 = [
+const Submenu3 = [
+  { chapter: "03", number: 1, name: "데이터 분리" },
+  { chapter: "03", number: 2, name: "Logistic Regression" },
+  { chapter: "03", number: 3, name: "Decision Tree" },
+  { chapter: "03", number: 4, name: "교차검증" },
+  { chapter: "03", number: 5, name: "Grid Search" },
+  { chapter: "03", number: 6, name: "결과 시각화하기" },
+];
+
+const Submenu4 = [
   { chapter: "04", number: 1, name: "앙상블 모델" },
-  { chapter: "04", number: 2, name: "모델 검증" },
+  { chapter: "04", number: 2, name: "성능 비교하기" },
 ];
 
 const LayoutSection: React.FC<Props> = ({ children }) => {
@@ -61,9 +71,9 @@ const LayoutSection: React.FC<Props> = ({ children }) => {
           <Remocon>
             <Menu menuInfo={menuInfo0} />
             <Menu menuInfo={menuInfo1} />
-            <Menu menuInfo={menuInfo2} />
-            <Menu menuInfo={menuInfo3} submenu={Submenu0} />
-            <Menu menuInfo={menuInfo4} submenu={Submenu1} />
+            <Menu menuInfo={menuInfo2} submenu={Submenu2}/>
+            <Menu menuInfo={menuInfo3} submenu={Submenu3} />
+            <Menu menuInfo={menuInfo4} submenu={Submenu4} />
             <Menu menuInfo={menuInfo5} />
             <Menu menuInfo={menuInfo6} />
           </Remocon>
