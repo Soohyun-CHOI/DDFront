@@ -44,3 +44,21 @@
     background-color: rgba(90, 156, 161, 0.05);
   }
 }
+
+.selected_mainmenu {
+  padding: 1.125rem 0 1.125rem 1.25rem;
+  font-family: $font-regular;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: $color-blue;
+  background-color: rgba(90, 156, 161, 0.05);
+}
+
+.selected_submenu {
+  padding: 1.125rem 0 1.125rem 3rem;
+  font-family: $font-regular;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: $color-blue;
+  background-color: rgba(90, 156, 161, 0.05);
+}

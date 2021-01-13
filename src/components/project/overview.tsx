@@ -1,8 +1,7 @@
-import Content from "../src/components/project/Content";
-import Title from "../src/components/project/Title";
+import Content from "./Content";
+import Title from "./Title";
 import Link from "next/link";
 import styles from "./styles/overview.module.scss";
-import LayoutSection from "../src/components/project/LayoutSection";
 
 const subTitle = "00. 들어가기 전에"; // 메인 메뉴의 서브 타이틀
 const mainTitle = "LOL 승패 예측 프로젝트";
@@ -30,7 +29,7 @@ const contentDetail5 =
 
 const Overview = () => {
   return (
-    <LayoutSection>
+    <>
       <Title subTitle={subTitle} mainTitle={mainTitle} />
       <Content contentTitle={contentTitle1} contentDetail={contentDetail1} />
       <Content contentTitle={contentTitle2} contentDetail={contentDetail2} />
@@ -47,12 +46,12 @@ const Overview = () => {
         difficulty_num={difficulty_num}
       />
       <Content contentTitle={contentTitle5} contentDetail={contentDetail5} />
-      <Link href="/lol/[...slug]" as="/lol/01">
+      <Link href="/lol/01">
         <a className={styles.start_btnWrap}>
           <div className={styles.start_btn}>시작하기</div>
         </a>
       </Link>
-    </LayoutSection>
+    </>
   );
 };
 export default Overview;

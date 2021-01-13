@@ -5,16 +5,16 @@ interface TitleProps {
   subTitle: string;
   subTitle2?: string[];
   mainTitle: string;
-  plusMenu?: boolean;
 }
 
-const Title = ({ plusMenu, subTitle, subTitle2, mainTitle }: TitleProps) => {
+const Title = ({ subTitle, subTitle2, mainTitle }: TitleProps) => {
   const router = useRouter();
-  const isOverviewPath = router.pathname === "/overview" ? true : false;
+  const isOverviewPath = Object.keys(router.query).length === 0 ? true : false;
+
   return (
     <>
       <div className={styles.title_wrap}>
-        <Link href="/overview">
+        <Link href="/lol">
           <a className={styles.sub_titleWrap}>
             <div className={styles.sub_title}>{subTitle}</div>
           </a>
@@ -30,13 +30,7 @@ const Title = ({ plusMenu, subTitle, subTitle2, mainTitle }: TitleProps) => {
             </a>
           </Link>
         )}
-
-        {/* 리모콘 메뉴 중 마지막 메뉴일 경우 */}
-        {plusMenu ? (
-          <div className={styles.main_title}>직접 해보는 LOL 승패 예측</div>
-        ) : (
-          <div className={styles.main_title}>{mainTitle}</div>
-        )}
+        <div className={styles.main_title}>{mainTitle}</div>
       </div>
       {isOverviewPath ? (
         <div className={styles.introduction}>

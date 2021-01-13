@@ -13,7 +13,7 @@ const Banner = () => {
           LOL 데이터로 승패를 예측해보자 <br />
           어쩌구 저쩌구 두 줄 정도로 말 만들기
         </div>
-        <Link href="/overview">
+        <Link href="/lol">
           <a className={styles.banner_buttonName}>
             <div className={styles.banner_button}>프로젝트 시작하기</div>
           </a>
