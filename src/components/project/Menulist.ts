@@ -1,13 +1,16 @@
-export const menuInfo = [
+export const LolmenuInfo = [
   {
+    project: "lol",
     chapter: "00",
     name: "들어가기 전에",
   },
   {
+    project: "lol",
     chapter: "01",
     name: "데이터 불러오기",
   },
   {
+    project: "lol",
     chapter: "02",
     name: "EDA와 전처리",
     submenu: [
@@ -17,6 +20,7 @@ export const menuInfo = [
     ],
   },
   {
+    project: "lol",
     chapter: "03",
     name: "모델링",
     submenu: [
@@ -28,6 +32,7 @@ export const menuInfo = [
     ],
   },
   {
+    project: "lol",
     chapter: "04",
     name: "최종 모델 선택",
     submenu: [
@@ -36,10 +41,12 @@ export const menuInfo = [
     ],
   },
   {
+    project: "lol",
     chapter: "05",
     name: "마치면서",
   },
   {
+    project: "lol",
     chapter: "+PLUS",
     name: "직접 해보기",
     plus: true,

@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 interface MenuProps {
   menuInfo: {
+    project: string;
     chapter: string;
     name: string;
     submenu?: Array<{ number: number; name: string }>;
@@ -17,7 +18,7 @@ const Menu = ({ menuInfo }: MenuProps) => {
   return (
     <>
       {menuInfo.plus ? (
-        <Link href="/lol/plus">
+        <Link href={`/${menuInfo.project}/plus`}>
           <a className={styles.main_menuWrap}>
             <div
               className={
@@ -31,7 +32,7 @@ const Menu = ({ menuInfo }: MenuProps) => {
           </a>
         </Link>
       ) : menuInfo.chapter === "00" ? (
-        <Link href="/lol">
+        <Link href={`/${menuInfo.project}`}>
           <a className={styles.main_menuWrap}>
             <div
               className={
@@ -43,7 +44,7 @@ const Menu = ({ menuInfo }: MenuProps) => {
           </a>
         </Link>
       ) : (
-        <Link href={`/lol/${menuInfo.chapter}`}>
+        <Link href={`/${menuInfo.project}/${menuInfo.chapter}`}>
           <a className={styles.main_menuWrap}>
             <div
               className={
@@ -63,7 +64,7 @@ const Menu = ({ menuInfo }: MenuProps) => {
         menuInfo.submenu.map((item) => {
           return (
             <Link
-              href={`/lol/${menuInfo.chapter}/0${item.number}`}
+              href={`/${menuInfo.project}/${menuInfo.chapter}/${item.number}`}
               key={item.number}
             >
               <a className={styles.sub_menuWrap}>
@@ -72,7 +73,7 @@ const Menu = ({ menuInfo }: MenuProps) => {
                     slug !== undefined &&
                     slug.length === 2 &&
                     slug[0] === menuInfo.chapter &&
-                    slug[1] === "0" + String(item.number)
+                    slug[1] === String(item.number)
                       ? styles.selected_submenu
                       : styles.sub_menu
                   }

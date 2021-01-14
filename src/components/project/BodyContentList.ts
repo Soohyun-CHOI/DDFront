@@ -1,4 +1,4 @@
-export const body_title = [
+export const Lolbody_title = [
   { chapter: "01", title: "데이터 분리" },
   {
     chapter: "04",
@@ -7,7 +7,7 @@ export const body_title = [
   },
 ];
 
-export const body_description = [
+export const Lolbody_description = [
   {
     chapter: "01",
     description: [
@@ -36,7 +36,7 @@ export const body_description = [
   },
 ];
 
-export const body_codebox = [
+export const Lolbody_codebox = [
   {
     chapter: "01",
     codebox: true,
@@ -53,7 +53,7 @@ export const body_codebox = [
   },
 ];
 
-export const body_toggle = [
+export const Lolbody_toggle = [
   {
     chapter: "01",
     statistics: "데이터 분리",

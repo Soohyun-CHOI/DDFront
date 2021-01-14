@@ -2,12 +2,12 @@ import { useRouter } from "next/router";
 import LayoutSection from "../../src/components/project/LayoutSection";
 import Overview from "../../src/components/project/overview";
 import Title from "../../src/components/project/Title";
-import { menuInfo } from "../../src/components/project/Menulist";
+import { LolmenuInfo } from "../../src/components/project/Menulist";
 import Video from "../../src/components/project/Video";
 import BodyTitle from "../../src/components/project/BodyTitle";
 import BodyDescription from "../../src/components/project/BodyDescription";
 import BodyCodebox from "../../src/components/project/BodyCodebox";
-import { body_codebox } from "../../src/components/project/BodyContentList";
+import { Lolbody_codebox } from "../../src/components/project/BodyContentList";
 
 const subTitle = "LOL 승패 예측 프로젝트";
 let subTitle2;
@@ -34,32 +34,41 @@ const matchTitle = (slug: string | string[]): JSX.Element => {
     // 리모콘 메뉴 중 마지막 메뉴일 경우
     if (slug[0] === "plus") {
       subTitle2 = [
-        menuInfo[menuInfo.length - 1].chapter,
-        menuInfo[menuInfo.length - 1].name,
+        LolmenuInfo[LolmenuInfo.length - 1].chapter,
+        LolmenuInfo[LolmenuInfo.length - 1].name,
       ];
       return (
         <Title
           key="plusmenu"
+          project={LolmenuInfo[0].project}
           subTitle={subTitle}
           subTitle2={subTitle2}
           mainTitle="직접 해보는 LOL 승패 예측"
         />
       );
     }
-    mainTitle = menuInfo.filter((menu) => menu.chapter === slug[0])[0].name;
+    mainTitle = LolmenuInfo.filter((menu) => menu.chapter === slug[0])[0].name;
     // 첫번째와 마지막 메뉴가 아니고, 서브메뉴가 없는 모든 메인 메뉴들
-    return <Title key={mainTitle} subTitle={subTitle} mainTitle={mainTitle} />;
+    return (
+      <Title
+        key={mainTitle}
+        project={LolmenuInfo[0].project}
+        subTitle={subTitle}
+        mainTitle={mainTitle}
+      />
+    );
   }
   // 서브 메뉴일때
   else {
-    let subTitleObj = menuInfo.filter((menu) => menu.chapter === slug[0])[0];
-    mainTitle = menuInfo
-      .filter((menu) => menu.chapter === slug[0])[0]
-      .submenu.filter((item) => item.number === Number(slug[1]))[0].name;
+    let subTitleObj = LolmenuInfo.filter((menu) => menu.chapter === slug[0])[0];
+    mainTitle = LolmenuInfo.filter(
+      (menu) => menu.chapter === slug[0]
+    )[0].submenu.filter((item) => item.number === Number(slug[1]))[0].name;
     subTitle2 = [subTitleObj.chapter, subTitleObj.name];
     return (
       <Title
         key={subTitle2[0] + subTitle2[1]}
+        project={LolmenuInfo[0].project}
         subTitle={subTitle}
         subTitle2={subTitle2}
         mainTitle={mainTitle}
@@ -80,7 +89,7 @@ const matchBody = (slug: string | string[]) => {
           key={slug[0] + Math.random().toString(30)}
           slug={slugArr}
         />
-        {body_codebox.filter(
+        {Lolbody_codebox.filter(
           (item) => item.chapter === slug[0] && item.codebox === true
         )[0] ? (
           <BodyCodebox key={slug[0] + Math.random().toString(30)} />
@@ -103,14 +112,11 @@ const matchBody = (slug: string | string[]) => {
           slug={slugArr}
           isSubmenu={true}
         />
-        {body_codebox
-          .filter(
-            (item) => item.chapter === slug[0] && item.codebox === false
-          )[0]
-          ?.submenu.filter(
-            (item) =>
-              "0" + String(item.number) === slug[1] && item.codebox === true
-          )[0] ? (
+        {Lolbody_codebox.filter(
+          (item) => item.chapter === slug[0] && item.codebox === false
+        )[0]?.submenu.filter(
+          (item) => String(item.number) === slug[1] && item.codebox === true
+        )[0] ? (
           <BodyCodebox key={slug[0] + slug[1] + Math.random().toString(32)} />
         ) : null}
       </>

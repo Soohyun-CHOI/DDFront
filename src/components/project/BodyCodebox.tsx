@@ -1,5 +1,4 @@
 import styles from "./styles/BodyCodebox.module.scss";
-import { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import "react-quill/dist/quill.bubble.css";
 import hljs from "highlight.js";
@@ -44,24 +43,18 @@ const formats = [
 ];
 
 const BodyCodebox = () => {
-  const [value, setValue] = useState<string>(
-    `<code><pre># 파이썬 코드를 입력하세요 ! 
-\n</pre></code>`
-  );
+  const value = `<code><pre>df_X = df_lol.drop(['Wins'], axis=1)\ndf_X.head()</pre></code>`;
   const ReactQuill =
     typeof window === "object" ? require("react-quill") : () => false;
-  const handleEditior = (value: string) => {
-    setValue(value);
-  };
 
   return (
-    <div className={styles.body_codebox}>
+    <div className={styles.Lolbody_codebox}>
       <ReactQuill
         className="post-content"
         value={value}
-        onChange={handleEditior}
         modules={modules}
         formats={formats}
+        readOnly={true}
         theme="bubble"
       />
     </div>

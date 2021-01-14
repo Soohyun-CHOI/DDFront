@@ -1,5 +1,6 @@
 import Content from "./Content";
 import Title from "./Title";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import styles from "./styles/overview.module.scss";
 
@@ -28,9 +29,11 @@ const contentDetail5 =
   "지금 바로 프로젝트에 참여하고 싶으시다고요? 그렇다면 ‘시작하기’를 눌러주세요!";
 
 const Overview = () => {
+  const router = useRouter();
+  const project = router.asPath.replace("/", "");
   return (
     <>
-      <Title subTitle={subTitle} mainTitle={mainTitle} />
+      <Title project={project} subTitle={subTitle} mainTitle={mainTitle} />
       <Content contentTitle={contentTitle1} contentDetail={contentDetail1} />
       <Content contentTitle={contentTitle2} contentDetail={contentDetail2} />
       <Content contentTitle={contentTitle3} contentDetail={contentDetail3} />
@@ -46,7 +49,7 @@ const Overview = () => {
         difficulty_num={difficulty_num}
       />
       <Content contentTitle={contentTitle5} contentDetail={contentDetail5} />
-      <Link href="/lol/01">
+      <Link href={`/${project}/01`}>
         <a className={styles.start_btnWrap}>
           <div className={styles.start_btn}>시작하기</div>
         </a>
