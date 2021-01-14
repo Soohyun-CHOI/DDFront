@@ -4,6 +4,10 @@ import Overview from "../../src/components/project/overview";
 import Title from "../../src/components/project/Title";
 import { menuInfo } from "../../src/components/project/Menulist";
 import Video from "../../src/components/project/Video";
+import BodyTitle from "../../src/components/project/BodyTitle";
+import BodyDescription from "../../src/components/project/BodyDescription";
+import BodyCodebox from "../../src/components/project/BodyCodebox";
+import { body_codebox } from "../../src/components/project/BodyContentList";
 
 const subTitle = "LOL 승패 예측 프로젝트";
 let subTitle2;
@@ -14,7 +18,7 @@ const matchVideo = (slug: string | string[]): JSX.Element => {
   if (slug.length === 1) {
     switch (slug[0]) {
       case "01":
-        return <Video key={slug[0]} />;
+        return <Video key={Math.random().toString(36)} />;
       default:
         return;
     }
@@ -64,11 +68,62 @@ const matchTitle = (slug: string | string[]): JSX.Element => {
   }
 };
 
+const matchBody = (slug: string | string[]) => {
+  // 경로 배열을 담은 slug를 slugArr 변수에 담음
+  let slugArr = slug;
+  // 메인 메뉴일 때(overview 메뉴 제외)
+  if (slug.length === 1) {
+    return (
+      <>
+        <BodyTitle key={slug[0] + Math.random().toString(30)} slug={slugArr} />
+        <BodyDescription
+          key={slug[0] + Math.random().toString(30)}
+          slug={slugArr}
+        />
+        {body_codebox.filter(
+          (item) => item.chapter === slug[0] && item.codebox === true
+        )[0] ? (
+          <BodyCodebox key={slug[0] + Math.random().toString(30)} />
+        ) : null}
+      </>
+    );
+  }
+
+  // 서브 메뉴일 때
+  if (slug.length === 2) {
+    return (
+      <>
+        <BodyTitle
+          key={slug[0] + slug[1] + Math.random().toString(32)}
+          slug={slugArr}
+          isSubmenu={true}
+        />
+        <BodyDescription
+          key={slug[0] + slug[1] + Math.random().toString(32)}
+          slug={slugArr}
+          isSubmenu={true}
+        />
+        {body_codebox
+          .filter(
+            (item) => item.chapter === slug[0] && item.codebox === false
+          )[0]
+          ?.submenu.filter(
+            (item) =>
+              "0" + String(item.number) === slug[1] && item.codebox === true
+          )[0] ? (
+          <BodyCodebox key={slug[0] + slug[1] + Math.random().toString(32)} />
+        ) : null}
+      </>
+    );
+  }
+};
+
 const matchContents = (slug: string | string[]) => {
   const resultMatchTitle = matchTitle(slug);
   const resultMatchVideo = matchVideo(slug);
+  const resultMatchBody = matchBody(slug);
 
-  return [resultMatchTitle, resultMatchVideo];
+  return [resultMatchTitle, resultMatchVideo, resultMatchBody];
 };
 
 const View = () => {
