@@ -1,25 +1,29 @@
 @import "../../../../styles/globals.scss";
 
 .title_wrap {
-  margin: 0 0 6rem;
+  margin: 1rem 0 6rem;
 }
 
 .sub_titleWrap {
   text-decoration: none;
   display: inline-block;
-  &:first-child {
-    margin-right: 1rem;
-  }
 }
 
 .sub_title {
+  margin-right: 1rem;
   font-family: $font-regular;
   font-size: 1rem;
   color: $color-blue;
+
+  span {
+    margin-right: 1rem;
+    font-size: 1rem;
+    color: $color-gray;
+  }
 }
 
 .main_title {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   font-family: $font-bold;
   font-size: 2.25rem;
   color: $color-black;

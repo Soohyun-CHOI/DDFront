@@ -20,12 +20,11 @@ export const menuInfo = [
     chapter: "03",
     name: "모델링",
     submenu: [
-      { number: 1, name: "데이터 분리" },
-      { number: 2, name: "Logistic Regression" },
-      { number: 3, name: "Decision Tree" },
-      { number: 4, name: "교차검증" },
-      { number: 5, name: "Grid Search" },
-      { number: 6, name: "결과 시각화하기" },
+      { number: 1, name: "Logistic Regression" },
+      { number: 2, name: "Decision Tree" },
+      { number: 3, name: "교차검증" },
+      { number: 4, name: "Grid Search" },
+      { number: 5, name: "결과 시각화하기" },
     ],
   },
   {
