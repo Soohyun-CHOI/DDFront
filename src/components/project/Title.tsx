@@ -24,9 +24,9 @@ const Title = ({ subTitle, subTitle2, mainTitle }: TitleProps) => {
         {subTitle2 && (
           <Link href={`/lol/${router.query.slug[0]}`}>
             <a className={styles.sub_titleWrap}>
-              <div
-                className={styles.sub_title}
-              >{`${subTitle2[0]}. ${subTitle2[1]}`}</div>
+              <div className={styles.sub_title}>
+                <span>|</span>{`${subTitle2[0]}. ${subTitle2[1]}`}
+              </div>
             </a>
           </Link>
         )}
