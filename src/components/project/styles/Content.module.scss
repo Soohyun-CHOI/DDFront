@@ -27,9 +27,5 @@
 }
 
 .content_detail {
-  line-height: 1.5rem;
-  font-family: $font-light;
-  font-size: 0.9rem;
-  color: $color-black;
-  white-space: pre-wrap;
+  @include contents;
 }

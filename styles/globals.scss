@@ -72,3 +72,11 @@ $border: 1px solid $color-gray;
     background: rgba(212, 129, 129, 0.05);
   }
 }
+
+@mixin contents {
+  line-height: 1.5rem;
+  font-family: $font-light;
+  font-size: 0.9rem;
+  color: $color-black;
+  white-space: pre-wrap;
+}
