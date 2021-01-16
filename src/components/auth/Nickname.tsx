@@ -12,7 +12,10 @@ const Nickname = () => {
             닉네임을 설정하고 바로 시작해 보세요!
           </div>
           <div className={styles.content_inputSection}>
-            <input type="text" />
+            <div className={styles.content_inputWrap}>
+              <input type="text" className={styles.content_input} />
+            </div>
+
             <div className={styles.content_checkDupbtn}>중복 확인</div>
           </div>
           <div className={styles.content_startbtn}>시작하기</div>
