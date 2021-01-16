@@ -1,70 +1,71 @@
 @import "../../../../styles/globals.scss";
 
 .toggle_wrap {
-  margin-top: -1rem;
-  display: flex;
-  flex-direction: column;
+  @include flex-col-box;
+  align-items: flex-end;
+  margin-top: -0.5rem;
 }
 
 .toggleBtn_wrap {
-  display: flex;
-  justify-content: flex-end;
+  @include flex-box;
+}
+
+@mixin toggle-btn {
+  $height-toggle: 1.5rem;
+  height: $height-toggle;
+  line-height: $height-toggle;
+  text-align: center;
+
+  border: 1px solid;
+  border-radius: 100px;
+  background: white;
+
+  font-family: $font-bold;
+  font-size: 0.75rem;
+  transition-duration: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .statistics_toggle {
-  width: 2.5rem;
-  height: 1.4rem;
-  line-height: 1.4rem;
-  margin: 1.25rem 0;
-  border: 1px solid;
-  border-radius: 100px;
-  background: white;
-  text-align: center;
-  font-family: $font-bold;
-  font-size: 0.8rem;
-  color: #4b6580;
-  transition-duration: 0.2s;
-  &:hover {
-    cursor: pointer;
-    // hover background 넣어주세요
-  }
+  @include toggle-btn;
+  width: 2.75rem;
+  color: $color-blue-dark;
 }
 
 .python_toggle {
+  @include toggle-btn;
   width: 3.5rem;
-  height: 1.4rem;
-  line-height: 1.4rem;
-  margin: 1.25rem 0 1.25rem 0.25rem;
-  border: 1px solid;
-  border-radius: 100px;
-  background: white;
-  text-align: center;
-  font-family: $font-bold;
-  font-size: 0.8rem;
+  margin-left: 0.4rem;
   color: $color-blue;
-  transition-duration: 0.2s;
-  &:hover {
-    cursor: pointer;
-    // hover background 넣어주세요
-  }
 }
 
 .statisticsToggle_selected {
   color: white;
-  background-color: #4b6580;
+  border: 1px solid $color-blue-dark;
+  background-color: $color-blue-dark;
 }
 
 .pythonToggle_selected {
   color: white;
-  background-color: #5a9ca1;
+  border: 1px solid $color-blue;
+  background-color: $color-blue;
+}
+
+@mixin toggle-content {
+  @include flex-box;
+  padding: 1.5rem;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+  border-radius: 3px;
 }
 
 .statisticsContent_wrap {
-  display: flex;
+  @include toggle-content;
   border: 1px solid #4b6580;
-  padding: 1.5rem;
   background-color: rgba(75, 101, 128, 0.1);
-  margin-bottom: 0.5rem;
 }
 
 .statisticsContent_Title {
@@ -90,9 +91,8 @@
 }
 
 .pythonContent_wrap {
-  display: flex;
+  @include toggle-content;
   border: 1px solid $color-blue;
-  padding: 1.5rem;
   background-color: rgba(90, 156, 161, 0.05);
 }
 
