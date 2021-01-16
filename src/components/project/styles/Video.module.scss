@@ -1,13 +1,9 @@
 @import "../../../../styles/globals.scss";
 
-.video_wrap {
-  margin: -5rem 0 5rem;
-}
-
 .buttonSection_wrap {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.5rem;
+  @include flex-box;
+  align-items: flex-start;
+  margin: 1.25rem 0 2.5rem;
 }
 
 .data_buttonName {
@@ -16,11 +12,11 @@
 
 .data_button {
   @include button-red;
-  width: 10rem;
+  width: 9.5rem;
   padding: 0.75rem 0;
 
   font-family: $font-bold;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 .next_buttonName {
@@ -29,9 +25,9 @@
 
 .next_button {
   @include button-blue;
-  width: 8rem;
+  width: 7.125rem;
   padding: 0.75rem 0;
 
   font-family: $font-bold;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
