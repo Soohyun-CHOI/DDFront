@@ -9,6 +9,7 @@ import BodyDescription from "../../src/components/project/BodyDescription";
 import BodyCodebox from "../../src/components/project/BodyCodebox";
 import { Lolbody_codebox } from "../../src/components/project/BodyContentList";
 import Togglebutton from "../../src/components/project/Togglebutton";
+import FileDropzone from "../../src/components/project/FileDropzone";
 
 const subTitle = "LOL 승패 예측 프로젝트";
 let subTitle2;
@@ -83,24 +84,32 @@ const matchBody = (slug: string | string[]) => {
   let slugArr = slug;
   // 메인 메뉴일 때(overview 메뉴 제외)
   if (slug.length === 1) {
-    return (
-      <>
-        <BodyTitle key={slug[0] + Math.random().toString(30)} slug={slugArr} />
-        <BodyDescription
-          key={slug[0] + Math.random().toString(30)}
-          slug={slugArr}
-        />
-        {Lolbody_codebox.filter(
-          (item) => item.chapter === slug[0] && item.codebox === true
-        )[0] ? (
-          <BodyCodebox key={slug[0] + Math.random().toString(30)} />
-        ) : null}
-        <Togglebutton
-          key={slug[0] + Math.random().toString(30)}
-          slug={slugArr}
-        />
-      </>
-    );
+    // 맨 마지막 메뉴(plus) 일때
+    if (slug[0] === "plus") {
+      return <FileDropzone />;
+    } else {
+      return (
+        <>
+          <BodyTitle
+            key={slug[0] + Math.random().toString(30)}
+            slug={slugArr}
+          />
+          <BodyDescription
+            key={slug[0] + Math.random().toString(30)}
+            slug={slugArr}
+          />
+          {Lolbody_codebox.filter(
+            (item) => item.chapter === slug[0] && item.codebox === true
+          )[0] ? (
+            <BodyCodebox key={slug[0] + Math.random().toString(30)} />
+          ) : null}
+          <Togglebutton
+            key={slug[0] + Math.random().toString(30)}
+            slug={slugArr}
+          />
+        </>
+      );
+    }
   }
 
   // 서브 메뉴일 때

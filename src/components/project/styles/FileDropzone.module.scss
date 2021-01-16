@@ -1,0 +1,57 @@
+@import "../../../../styles/globals.scss";
+
+.dropzone_wrap {
+  margin-top: 4rem;
+  display: flex;
+  height: 12rem;
+}
+
+.dropzone_left {
+  font-size: 0.75rem;
+  width: 50%;
+  border: 1px solid #c0c0c0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.dropzone_section {
+  color: #c0c0c0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropzone_right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.empty_wrap {
+  height: 50%;
+}
+
+.result_wrap {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score_wrap {
+  font-family: $font-bold;
+  color: $color-blue;
+}
+
+.grade_wrap {
+  font-family: $font-regular;
+}
+
+.illust_wrap {
+  height: 50%;
+}
