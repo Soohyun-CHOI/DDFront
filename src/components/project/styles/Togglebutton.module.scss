@@ -1,0 +1,119 @@
+@import "../../../../styles/globals.scss";
+
+.toggle_wrap {
+  margin-top: -1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.toggleBtn_wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.statistics_toggle {
+  width: 2.5rem;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  margin: 1.25rem 0;
+  border: 1px solid;
+  border-radius: 100px;
+  background: white;
+  text-align: center;
+  font-family: $font-bold;
+  font-size: 0.8rem;
+  color: #4b6580;
+  transition-duration: 0.2s;
+  &:hover {
+    cursor: pointer;
+    // hover background 넣어주세요
+  }
+}
+
+.python_toggle {
+  width: 3.5rem;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  margin: 1.25rem 0 1.25rem 0.25rem;
+  border: 1px solid;
+  border-radius: 100px;
+  background: white;
+  text-align: center;
+  font-family: $font-bold;
+  font-size: 0.8rem;
+  color: $color-blue;
+  transition-duration: 0.2s;
+  &:hover {
+    cursor: pointer;
+    // hover background 넣어주세요
+  }
+}
+
+.statisticsToggle_selected {
+  color: white;
+  background-color: #4b6580;
+}
+
+.pythonToggle_selected {
+  color: white;
+  background-color: #5a9ca1;
+}
+
+.statisticsContent_wrap {
+  display: flex;
+  border: 1px solid #4b6580;
+  padding: 1.5rem;
+  background-color: rgba(75, 101, 128, 0.1);
+  margin-bottom: 0.5rem;
+}
+
+.statisticsContent_Title {
+  width: 40%;
+}
+
+.statisticsContent_subTitle {
+  font-family: $font-bold;
+  font-size: 0.9rem;
+  color: #4b6580;
+}
+
+.statisticsContent_mainTitle {
+  font-family: $font-bold;
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.statisticsContent_Des {
+  width: 60%;
+  font-size: 0.7rem;
+  white-space: pre-wrap;
+}
+
+.pythonContent_wrap {
+  display: flex;
+  border: 1px solid $color-blue;
+  padding: 1.5rem;
+  background-color: rgba(90, 156, 161, 0.05);
+}
+
+.pythonContent_Title {
+  width: 40%;
+}
+
+.pythonContent_subTitle {
+  font-family: $font-bold;
+  font-size: 0.9rem;
+  color: $color-blue;
+}
+
+.pythonContent_mainTitle {
+  font-family: $font-bold;
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.pythonContent_Des {
+  width: 60%;
+  font-size: 0.7rem;
+  white-space: pre-wrap;
+}

@@ -1,20 +1,23 @@
 @font-face {
-  font-family: 'NEXON Lv2 Gothic Bold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Bold.woff') format('woff');
+  font-family: "NEXON Lv2 Gothic Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Bold.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'NEXON Lv2 Gothic Light';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Light.woff') format('woff');
+  font-family: "NEXON Lv2 Gothic Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Light.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'NEXON Lv2 Gothic';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+  font-family: "NEXON Lv2 Gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -43,7 +46,11 @@ $border: 1px solid $color-gray;
 }
 
 @mixin highlight {
-  background: linear-gradient(to top, rgba(90, 156, 161, 0.3) 50%, transparent 50%);
+  background: linear-gradient(
+    to top,
+    rgba(90, 156, 161, 0.3) 50%,
+    transparent 50%
+  );
 }
 
 @mixin button {

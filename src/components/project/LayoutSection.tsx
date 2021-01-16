@@ -17,7 +17,7 @@ const projectSwitch = (project: string) => {
       ));
       return lolMenu;
     default:
-      return;
+      return null;
   }
 };
 

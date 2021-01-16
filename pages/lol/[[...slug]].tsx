@@ -8,6 +8,7 @@ import BodyTitle from "../../src/components/project/BodyTitle";
 import BodyDescription from "../../src/components/project/BodyDescription";
 import BodyCodebox from "../../src/components/project/BodyCodebox";
 import { Lolbody_codebox } from "../../src/components/project/BodyContentList";
+import Togglebutton from "../../src/components/project/Togglebutton";
 
 const subTitle = "LOL 승패 예측 프로젝트";
 let subTitle2;
@@ -94,6 +95,10 @@ const matchBody = (slug: string | string[]) => {
         )[0] ? (
           <BodyCodebox key={slug[0] + Math.random().toString(30)} />
         ) : null}
+        <Togglebutton
+          key={slug[0] + Math.random().toString(30)}
+          slug={slugArr}
+        />
       </>
     );
   }
@@ -119,6 +124,11 @@ const matchBody = (slug: string | string[]) => {
         )[0] ? (
           <BodyCodebox key={slug[0] + slug[1] + Math.random().toString(32)} />
         ) : null}
+        <Togglebutton
+          key={slug[0] + Math.random().toString(30)}
+          slug={slugArr}
+          isSubmenu={true}
+        />
       </>
     );
   }

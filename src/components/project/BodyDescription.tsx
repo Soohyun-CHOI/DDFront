@@ -1,4 +1,5 @@
 import styles from "./styles/BodyDescription.module.scss";
+import { useRouter } from "next/router";
 import { Lolbody_description } from "./BodyContentList";
 
 interface BodyDescriptionProps {
@@ -6,16 +7,49 @@ interface BodyDescriptionProps {
   isSubmenu?: boolean;
 }
 
-const BodyDescription = ({ slug, isSubmenu }: BodyDescriptionProps) => (
-  <div className={styles.Lolbody_description}>
-    {!isSubmenu
-      ? Lolbody_description.filter(
-          (item) => item.chapter === slug[0]
-        )[0]?.description.map((item) => `- ${item}\n`)
-      : Lolbody_description.filter((item) => item.chapter === slug[0])[0]
-          ?.submenu.filter((item) => String(item.number) === slug[1])[0]
-          ?.description.map((item) => `- ${item}\n`)}
-  </div>
-);
+const matchDesStyles = (project: string) => {
+  switch (project) {
+    case "lol":
+      return styles.Lolbody_description;
+    default:
+      return null;
+  }
+};
+
+const matchDesObj = (project: string) => {
+  switch (project) {
+    case "lol":
+      return Lolbody_description;
+    default:
+      return null;
+  }
+};
+
+const descriptionSwitch = (
+  project: string,
+  slug: string | string[],
+  isSubmenu: boolean
+) => {
+  return (
+    <div className={matchDesStyles(project)}>
+      {!isSubmenu
+        ? matchDesObj(project)
+            .filter((item) => item.chapter === slug[0])[0]
+            ?.description.map((item) => `- ${item}\n`)
+        : matchDesObj(project)
+            .filter((item) => item.chapter === slug[0])[0]
+            ?.submenu.filter((item) => String(item.number) === slug[1])[0]
+            ?.description.map((item) => `- ${item}\n`)}
+    </div>
+  );
+};
+
+const BodyDescription = ({ slug, isSubmenu }: BodyDescriptionProps) => {
+  const router = useRouter();
+  const project = router.pathname
+    .replace(/\//gi, "")
+    .replace("[[...slug]]", "");
+  return descriptionSwitch(project, slug, isSubmenu);
+};
 
 export default BodyDescription;
