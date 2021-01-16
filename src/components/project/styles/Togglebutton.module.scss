@@ -1,119 +1,136 @@
 @import "../../../../styles/globals.scss";
 
 .toggle_wrap {
-  margin-top: -1rem;
+  margin-top: -1.5rem;
   display: flex;
   flex-direction: column;
 }
 
 .toggleBtn_wrap {
-  display: flex;
+  @include flex-box;
   justify-content: flex-end;
 }
 
-.statistics_toggle {
-  width: 2.5rem;
-  height: 1.4rem;
-  line-height: 1.4rem;
-  margin: 1.25rem 0;
+@mixin toggle-btn {
+  $height: 1.5rem;
+  height: $height;
+  line-height: $height;
   border: 1px solid;
   border-radius: 100px;
   background: white;
   text-align: center;
   font-family: $font-bold;
-  font-size: 0.8rem;
-  color: #4b6580;
+  font-size: 0.75rem;
   transition-duration: 0.2s;
+
   &:hover {
     cursor: pointer;
-    // hover background 넣어주세요
   }
 }
 
+.statistics_toggle {
+  @include toggle-btn;
+  width: 2.75rem;
+  color: $color-blue-dark;
+}
+
 .python_toggle {
+  @include toggle-btn;
   width: 3.5rem;
-  height: 1.4rem;
-  line-height: 1.4rem;
-  margin: 1.25rem 0 1.25rem 0.25rem;
-  border: 1px solid;
-  border-radius: 100px;
-  background: white;
-  text-align: center;
-  font-family: $font-bold;
-  font-size: 0.8rem;
+  margin-left: 0.25rem;
   color: $color-blue;
-  transition-duration: 0.2s;
-  &:hover {
-    cursor: pointer;
-    // hover background 넣어주세요
-  }
 }
 
 .statisticsToggle_selected {
   color: white;
-  background-color: #4b6580;
+  background-color: $color-blue-dark;
+  border: 1px solid $color-blue-dark;
 }
 
 .pythonToggle_selected {
   color: white;
-  background-color: #5a9ca1;
+  background-color: $color-blue;
+  border: 1px solid $color-blue;
 }
 
-.statisticsContent_wrap {
+@mixin toggle-content {
   display: flex;
-  border: 1px solid #4b6580;
-  padding: 1.5rem;
-  background-color: rgba(75, 101, 128, 0.1);
-  margin-bottom: 0.5rem;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 3px;
 }
 
-.statisticsContent_Title {
-  width: 40%;
+@mixin toggle-title {
+  width: 30%;
+  padding: 0.5rem;
 }
 
-.statisticsContent_subTitle {
+@mixin toggle-subtitle {
   font-family: $font-bold;
-  font-size: 0.9rem;
-  color: #4b6580;
+  font-size: 0.8rem;
 }
 
-.statisticsContent_mainTitle {
+@mixin toggle-maintitle {
+  margin-top: 0.25rem;
   font-family: $font-bold;
   font-size: 1.4rem;
-  margin-top: 0.5rem;
+  color: $color-black;
 }
 
-.statisticsContent_Des {
-  width: 60%;
-  font-size: 0.7rem;
+@mixin toggle-des {
+  width: 70%;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  line-height: 1.25rem;
+  font-family: $font-light;
+  font-size: 0.75rem;
+  color: $color-black;
   white-space: pre-wrap;
 }
 
+.statisticsContent_wrap {
+  @include toggle-content;
+  border: 1px solid $color-blue-dark;
+  background-color: rgba(75, 101, 128, 0.1);
+}
+
+.statisticsContent_Title {
+  @include toggle-title;
+}
+
+.statisticsContent_subTitle {
+  @include toggle-subtitle;
+  color: $color-blue-dark;
+}
+
+.statisticsContent_mainTitle {
+  @include toggle-maintitle;
+}
+
+.statisticsContent_Des {
+  @include toggle-des;
+  border-left: 1px solid $color-blue-dark;
+}
+
 .pythonContent_wrap {
-  display: flex;
+  @include toggle-content;
   border: 1px solid $color-blue;
-  padding: 1.5rem;
   background-color: rgba(90, 156, 161, 0.05);
 }
 
 .pythonContent_Title {
-  width: 40%;
+  @include toggle-title;
 }
 
 .pythonContent_subTitle {
-  font-family: $font-bold;
-  font-size: 0.9rem;
+  @include toggle-subtitle;
   color: $color-blue;
 }
 
 .pythonContent_mainTitle {
-  font-family: $font-bold;
-  font-size: 1.4rem;
-  margin-top: 0.5rem;
+  @include toggle-maintitle;
 }
 
 .pythonContent_Des {
-  width: 60%;
-  font-size: 0.7rem;
-  white-space: pre-wrap;
+  @include toggle-des;
+  border-left: 1px solid $color-blue;
 }
