@@ -1,5 +1,6 @@
 import styles from "./styles/Main.module.scss";
 import Banner from "./Banner";
+import { BannerContent } from "./BannerContent";
 
 const Main = () => {
   return (
@@ -16,8 +17,9 @@ const Main = () => {
           분석 프로젝트
         </div>
       </div>
-      <Banner />
-      {/*<Banner />*/}
+      {BannerContent.map((item, index) => (
+        <Banner key={index} project={item.project} />
+      ))}
     </>
   );
 };

@@ -28,4 +28,31 @@
 .nav_li {
   list-style: none;
   margin-left: 2rem;
+  cursor: pointer;
+}
+
+.popup_wrap {
+  width: 9rem;
+  height: 6rem;
+  background-color: white;
+  border: 1px solid #dcdcdc;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  right: 0.7rem;
+}
+
+.profile_edit,
+.logout {
+  font-family: $font-regular;
+  display: flex;
+  padding-left: 1rem;
+  justify-content: left;
+  align-items: center;
+  width: 90%;
+  height: 50%;
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(229, 229, 229, 0.3);
+  }
 }
