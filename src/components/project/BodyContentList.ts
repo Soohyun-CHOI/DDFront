@@ -1,3 +1,16 @@
+export const Lolbody_introduction = [
+  {
+    chapter: "00",
+    introduction:
+      "Welcome to DataDuck!\n\n이번 LOL 승패 예측 프로젝트에서, 우리는 인기 게임 ‘리그 오브레전드(LOL)’의 실제 게임 데이터로 데이터 분석의 과정을 알아보고, 직접 데이터를 분석해보는 시간을 거질 것입니다.",
+  },
+  {
+    chapter: "plus",
+    introduction:
+      "수고하셨습니다!\n우리는 LOL 승패 예측 프로젝트를 성공적으로 마무리 했어요.\n\n꼭 필요한 단계는 아니지만 더 하고 싶으면 이걸 해봐라\n뭐하는지 대충 설명 어쩌구 저쩌구 어쩌구 하는 방법 설명 데이터 다운받고 새로 제출하고 어쩌구\n[캐릭터 이름]이 점수를 알려줄 거다\n\n덕-바",
+  },
+];
+
 export const Lolbody_title = [
   { chapter: "01", title: "데이터 분리" },
   {

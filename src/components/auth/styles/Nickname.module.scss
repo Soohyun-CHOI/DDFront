@@ -1,0 +1,45 @@
+@import "../../../../styles/globals.scss";
+
+.container {
+  height: 17rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  padding: 10rem;
+  position: relative;
+}
+
+.nickname_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.illust_wrap {
+  position: absolute;
+  top: 3rem;
+  text-align: center;
+}
+
+.content_wrap {
+  text-align: center;
+}
+
+.content_title {
+  font-family: $font-bold;
+}
+
+.content_inputSection {
+  display: flex;
+}
+
+.content_startbtn {
+  @include button-blue;
+  width: 8rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin: 1.25rem 0;
+  font-family: $font-bold;
+  font-size: 1rem;
+}

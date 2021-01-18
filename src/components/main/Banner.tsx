@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className={styles.banner_wrap}>
       <div className={styles.banner_illust}>
-        <img src="/images/ex.png" alt="ex" width="100%" height="100%" />
+        <img src="/images/project_lol.jpg" alt="ex" width="100%" height="100%" />
       </div>
       <div className={styles.banner_content}>
         <div className={styles.banner_title}>LoL 승패 예측 프로젝트</div>

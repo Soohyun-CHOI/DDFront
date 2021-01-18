@@ -6,7 +6,7 @@ const Main = () => {
     <>
       <div className={styles.main_wrap}>
         <img
-          src="/images/ex.png"
+          src="/images/main.jpg"
           alt="ex"
           width="70%"
           className={styles.main_illust}
@@ -17,7 +17,7 @@ const Main = () => {
         </div>
       </div>
       <Banner />
-      <Banner />
+      {/*<Banner />*/}
     </>
   );
 };

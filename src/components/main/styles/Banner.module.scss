@@ -2,6 +2,7 @@
 
 .banner_wrap {
   @include flex-box;
+  align-items: flex-end;
   height: 30vw;
   margin-top: 4rem;
   border: $border;
@@ -9,17 +10,21 @@
 }
 
 .banner_illust {
-  width: 50%;
+  display: flex;
+  align-items: flex-end;
+  width: 52%;
 }
 
 .banner_content {
   @include flex-col-box;
+  justify-content: center;
   align-items: flex-end;
+  height: 100%;
   padding-right: 3rem;
 }
 
 .banner_title {
-  margin-top: 1rem;
+  margin-top: 3rem;
   font-family: $font-bold;
   font-size: 2rem;
   color: $color-black;

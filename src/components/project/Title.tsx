@@ -1,6 +1,8 @@
 import styles from "./styles/Title.module.scss";
 import Link from "next/link";
+import { Lolbody_introduction } from "./BodyContentList";
 import { useRouter } from "next/router";
+
 interface TitleProps {
   project: string;
   subTitle: string;
@@ -11,7 +13,7 @@ interface TitleProps {
 const Title = ({ project, subTitle, subTitle2, mainTitle }: TitleProps) => {
   const router = useRouter();
   const isOverviewPath = Object.keys(router.query).length === 0 ? true : false;
-
+  const isPlusPath = router.query?.slug?.includes("plus") ? true : false;
   return (
     <>
       <div className={styles.title_wrap}>
@@ -36,10 +38,18 @@ const Title = ({ project, subTitle, subTitle2, mainTitle }: TitleProps) => {
       </div>
       {isOverviewPath && project === "lol" ? (
         <div className={styles.introduction}>
-          Welcome to DataDuck! <br /> <br />
-          이번 LOL 승패 예측 프로젝트에서, 우리는 인기 게임 ‘리그 오브
-          레전드(LOL)’의 실제 게임 데이터로 데이터 분석의 과정을 알아보고, 직접
-          데이터를 분석해보는 시간을 거질 것입니다.
+          {
+            Lolbody_introduction.filter((item) => item.chapter === "00")[0]
+              .introduction
+          }
+        </div>
+      ) : null}
+      {isPlusPath && project === "lol" ? (
+        <div className={styles.introduction}>
+          {
+            Lolbody_introduction.filter((item) => item.chapter === "plus")[0]
+              .introduction
+          }
         </div>
       ) : null}
     </>
