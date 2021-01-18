@@ -39,6 +39,9 @@
   height: 3rem;
   font-size: 2rem;
   padding: 0 0.5rem 0;
+  &:focus {
+    outline: none;
+  }
 }
 
 .content_checkDupbtn {

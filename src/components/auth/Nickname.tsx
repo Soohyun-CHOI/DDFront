@@ -15,7 +15,6 @@ const Nickname = () => {
             <div className={styles.content_inputWrap}>
               <input type="text" className={styles.content_input} />
             </div>
-
             <div className={styles.content_checkDupbtn}>중복 확인</div>
           </div>
           <div className={styles.content_startbtn}>시작하기</div>
