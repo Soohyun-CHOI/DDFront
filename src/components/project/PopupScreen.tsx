@@ -13,7 +13,12 @@ const PopupScreen = ({ child, isLogout }: PopupScreenProps) => {
   const isLogoutPopup: Boolean = isLogout;
 
   return (
-    <Popup trigger={child} modal nested>
+    <Popup
+      trigger={child}
+      modal
+      nested
+      overlayStyle={{ backdropFilter: "blur(2px)" }}
+    >
       {(close) => (
         <div className={styles.popup_wrap}>
           {isLogoutPopup ? (

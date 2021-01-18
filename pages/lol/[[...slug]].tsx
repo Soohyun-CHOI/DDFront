@@ -10,6 +10,7 @@ import BodyCodebox from "../../src/components/project/BodyCodebox";
 import { Lolbody_codebox } from "../../src/components/project/BodyContentList";
 import Togglebutton from "../../src/components/project/Togglebutton";
 import FileDropzone from "../../src/components/project/FileDropzone";
+import Comment from "../../src/components/project/Comment";
 
 const subTitle = "LOL 승패 예측 프로젝트";
 let subTitle2;
@@ -143,12 +144,26 @@ const matchBody = (slug: string | string[]) => {
   }
 };
 
+const matchComment = (slug: string | string[]) => {
+  // overview 페이지나 plus 메뉴가 아닐 경우 comment 컴포넌트 추가
+  if (slug.length !== 0 && slug[0] !== "plus") {
+    return <Comment />;
+  }
+  return null;
+};
+
 const matchContents = (slug: string | string[]) => {
   const resultMatchTitle = matchTitle(slug);
   const resultMatchVideo = matchVideo(slug);
   const resultMatchBody = matchBody(slug);
+  const resultMatchComment = matchComment(slug);
 
-  return [resultMatchTitle, resultMatchVideo, resultMatchBody];
+  return [
+    resultMatchTitle,
+    resultMatchVideo,
+    resultMatchBody,
+    resultMatchComment,
+  ];
 };
 
 const View = () => {
