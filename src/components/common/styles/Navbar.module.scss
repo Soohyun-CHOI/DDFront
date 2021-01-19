@@ -32,26 +32,30 @@
 }
 
 .popup_wrap {
-  width: 9rem;
-  height: 6rem;
-  background-color: white;
-  border: 1px solid #dcdcdc;
   display: flex;
   flex-direction: column;
   position: relative;
   right: 0.7rem;
+  width: 9rem;
+  height: 6rem;
+
+  background-color: white;
+  border: $border;
+  border-radius: 3px;
 }
 
 .profile_edit,
 .logout {
-  font-family: $font-regular;
-  display: flex;
+  height: 3rem;
+  line-height: 3rem;
   padding-left: 1rem;
-  justify-content: left;
-  align-items: center;
-  width: 90%;
-  height: 50%;
+
+  font-family: $font-light;
+  font-size: 0.875rem;
+  color: $color-black;
+
   &:hover {
+    font-family: $font-regular;
     cursor: pointer;
     background-color: rgba(229, 229, 229, 0.3);
   }

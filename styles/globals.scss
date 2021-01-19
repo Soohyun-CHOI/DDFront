@@ -68,6 +68,7 @@ $border: 1px solid $color-gray;
   transition-duration: 0.2s;
 
   &:hover {
+    cursor: pointer;
     background: rgba(90, 156, 161, 0.05);
   }
 }
@@ -77,6 +78,7 @@ $border: 1px solid $color-gray;
   color: $color-red;
 
   &:hover {
+    cursor: pointer;
     background: rgba(212, 129, 129, 0.05);
   }
 }
