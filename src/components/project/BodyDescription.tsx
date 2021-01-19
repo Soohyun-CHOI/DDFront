@@ -1,6 +1,7 @@
 import styles from "./styles/BodyDescription.module.scss";
 import { useRouter } from "next/router";
 import { Lolbody_description } from "./BodyContentList";
+import { ProjectList } from "../common/ProjectList";
 
 interface BodyDescriptionProps {
   slug: string | string[];
@@ -46,9 +47,7 @@ const descriptionSwitch = (
 
 const BodyDescription = ({ slug, isSubmenu }: BodyDescriptionProps) => {
   const router = useRouter();
-  const project = router.pathname
-    .replace(/\//gi, "")
-    .replace("[[...slug]]", "");
+  const project = ProjectList.filter((name) => router.asPath.includes(name))[0];
   return descriptionSwitch(project, slug, isSubmenu);
 };
 

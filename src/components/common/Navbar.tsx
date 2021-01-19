@@ -1,7 +1,7 @@
 import styles from "./styles/Navbar.module.scss";
 import Link from "next/link";
 import NavbarLayout from "./NavbarLayout";
-import PopupScreen from "../project/PopupScreen";
+import PopupScreen from "./PopupScreen";
 import Popup from "reactjs-popup";
 import { useState } from "react";
 

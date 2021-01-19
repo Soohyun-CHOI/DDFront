@@ -10,21 +10,34 @@ import BodyCodebox from "../../src/components/project/BodyCodebox";
 import { Lolbody_codebox } from "../../src/components/project/BodyContentList";
 import Togglebutton from "../../src/components/project/Togglebutton";
 import FileDropzone from "../../src/components/project/FileDropzone";
-import Comment from "../../src/components/project/Comment";
+import { Lolbody_video } from "../../src/components/project/BodyContentList";
 
 const subTitle = "LOL 승패 예측 프로젝트";
 let subTitle2;
 let mainTitle;
 
 const matchVideo = (slug: string | string[]): JSX.Element => {
+  const mainMenuObj = Lolbody_video.filter(
+    (Obj) => Obj?.chapter === slug[0]
+  )[0];
+  const subMenuObj = mainMenuObj?.submenu?.filter(
+    (Obj) => Obj.number === Number(slug[1])
+  )[0];
   // 메인 메뉴에서 Video 컴포넌트를 사용해야 할 때
   if (slug.length === 1) {
-    switch (slug[0]) {
-      case "01":
-        return <Video key={Math.random().toString(36)} />;
-      default:
-        return;
+    // 메인 메뉴에 비디오가 존재할 경우
+    if (mainMenuObj?.video) {
+      return <Video key={Math.random().toString(36)} />;
     }
+    return null;
+  }
+  // 서브 메뉴에서 Video 컴포넌트를 사용해야 할 때
+  if (slug.length === 2) {
+    // 서브 메뉴에 비디오가 존재할 경우
+    if (subMenuObj?.video) {
+      return <Video key={Math.random().toString(36)} />;
+    }
+    return null;
   }
 };
 
@@ -37,7 +50,7 @@ const matchTitle = (slug: string | string[]): JSX.Element => {
     // 리모콘 메뉴 중 마지막 메뉴일 경우
     if (slug[0] === "plus") {
       subTitle2 = [
-        LolmenuInfo[LolmenuInfo.length - 1].chapter,
+        "+" + LolmenuInfo[LolmenuInfo.length - 1].chapter.toUpperCase(),
         LolmenuInfo[LolmenuInfo.length - 1].name,
       ];
       return (
@@ -50,7 +63,7 @@ const matchTitle = (slug: string | string[]): JSX.Element => {
         />
       );
     }
-    mainTitle = LolmenuInfo.filter((menu) => menu.chapter === slug[0])[0].name;
+    mainTitle = LolmenuInfo.filter((menu) => menu.chapter === slug[0])[0]?.name;
     // 첫번째와 마지막 메뉴가 아니고, 서브메뉴가 없는 모든 메인 메뉴들
     return (
       <Title
@@ -144,26 +157,12 @@ const matchBody = (slug: string | string[]) => {
   }
 };
 
-const matchComment = (slug: string | string[]) => {
-  // overview 페이지나 plus 메뉴가 아닐 경우 comment 컴포넌트 추가
-  if (slug.length !== 0 && slug[0] !== "plus") {
-    return <Comment />;
-  }
-  return null;
-};
-
 const matchContents = (slug: string | string[]) => {
   const resultMatchTitle = matchTitle(slug);
   const resultMatchVideo = matchVideo(slug);
   const resultMatchBody = matchBody(slug);
-  const resultMatchComment = matchComment(slug);
 
-  return [
-    resultMatchTitle,
-    resultMatchVideo,
-    resultMatchBody,
-    resultMatchComment,
-  ];
+  return [resultMatchTitle, resultMatchVideo, resultMatchBody];
 };
 
 const View = () => {

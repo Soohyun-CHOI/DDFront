@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import styles from "./styles/overview.module.scss";
 import { LolOverview } from "./OverviewList";
+import { ProjectList } from "../common/ProjectList";
 
 const overviewSwitch = (project: string) => {
   switch (project) {
@@ -31,7 +32,10 @@ const overviewSwitch = (project: string) => {
             contentTitle={LolOverview[4].contentTitle3}
             contentDetail={LolOverview[4].contentDetail3}
           />
-          <Link href={`/${project}`}>
+          {/* 추후에 구글 드라이브 다운로드 링크 고쳐야 함 */}
+          <Link
+            href={`https://drive.google.com/drive/folders/1q1lFAbs3-g-49nROIzqQeO_HMnOriqOh?usp=sharing`}
+          >
             <a className={styles.download_btnWrap}>
               <div className={styles.download_btn}>다운로드</div>
             </a>
@@ -60,7 +64,7 @@ const overviewSwitch = (project: string) => {
 
 const Overview = () => {
   const router = useRouter();
-  const project = router.asPath.replace("/", "");
+  const project = ProjectList.filter((name) => router.asPath.includes(name))[0];
   return overviewSwitch(project);
 };
 export default Overview;

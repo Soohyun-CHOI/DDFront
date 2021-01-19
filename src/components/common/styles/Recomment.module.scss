@@ -1,0 +1,89 @@
+@import "../../../../styles/globals.scss";
+
+.recomment_dataSection {
+  margin-top: 4vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recomment_leftSection {
+  margin-right: 1vw;
+}
+
+.recomment_rightSection {
+  width: 90vw;
+}
+
+.recomment_userImage {
+  position: relative;
+  bottom: 2vh;
+  border: 1px solid #dcdcdc;
+  border-radius: 300px;
+  background-color: white;
+  width: 5vw;
+  height: 5vw;
+}
+
+.recomment_username {
+  font-family: $font-regular;
+  font-size: 0.8rem;
+}
+
+.recomment_time {
+  font-family: $font-light;
+  font-size: 0.5rem;
+  margin-left: 1.5vw;
+}
+
+.recomment_zone {
+  margin-top: 1.5vh;
+  padding: 1.5vw;
+  border: 1px solid #dcdcdc;
+}
+
+.recomment_content {
+  font-family: $font-light;
+  font-size: 0.5rem;
+  display: flex;
+}
+
+.recomment_data {
+  width: 100%;
+}
+
+.recomment_optionWrap {
+  display: flex;
+  justify-content: flex-end;
+  width: 30%;
+}
+
+.recomment_option {
+  list-style: none;
+}
+
+.recomment_icon {
+  position: relative;
+  top: 0.25vh;
+  right: 0.2vw;
+}
+
+.recomment_recommentBtn,
+.recomment_editBtn,
+.recomment_deleteBtn {
+  display: flex;
+  height: 2vh;
+  &:hover {
+    cursor: pointer;
+  }
+  &:not(:first-of-type) {
+    margin-left: 1vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .recomment_optionWrap {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+}

@@ -1,6 +1,7 @@
 import styles from "./styles/BodyTitle.module.scss";
 import { useRouter } from "next/router";
 import { Lolbody_title } from "./BodyContentList";
+import { ProjectList } from "../common/ProjectList";
 
 interface BodyTitleProps {
   slug: string | string[];
@@ -45,9 +46,7 @@ const titleSwitch = (
 
 const BodyTitle = ({ slug, isSubmenu }: BodyTitleProps) => {
   const router = useRouter();
-  const project = router.pathname
-    .replace(/\//gi, "")
-    .replace("[[...slug]]", "");
+  const project = ProjectList.filter((name) => router.asPath.includes(name))[0];
   return titleSwitch(project, slug, isSubmenu);
 };
 

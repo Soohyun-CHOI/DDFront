@@ -17,7 +17,7 @@ const PopupScreen = ({ child, isLogout }: PopupScreenProps) => {
       trigger={child}
       modal
       nested
-      overlayStyle={{ backdropFilter: "blur(2px)" }}
+      overlayStyle={{ backdropFilter: "blur(2.5px)" }}
     >
       {(close) => (
         <div className={styles.popup_wrap}>

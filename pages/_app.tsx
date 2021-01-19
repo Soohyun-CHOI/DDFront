@@ -24,6 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       ) : (
         <Component {...pageProps} />
       )}
+      <style jsx global>{`
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
     </>
   );
 }

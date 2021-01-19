@@ -2,6 +2,7 @@ import styles from "./styles/Togglebutton.module.scss";
 import { Lolbody_toggle } from "./BodyContentList";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { ProjectList } from "../common/ProjectList";
 
 interface TogglebuttonProps {
   slug: string | string[];
@@ -423,9 +424,7 @@ const Togglebutton = ({ slug, isSubmenu }: TogglebuttonProps) => {
   const [pythonClicked, setPythonClicked] = useState<boolean>(false);
 
   const router = useRouter();
-  const project = router.pathname
-    .replace(/\//gi, "")
-    .replace("[[...slug]]", "");
+  const project = ProjectList.filter((name) => router.asPath.includes(name))[0];
   return toggleSwitch(
     project,
     slug,

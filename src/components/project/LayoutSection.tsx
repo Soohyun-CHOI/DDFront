@@ -3,6 +3,7 @@ import Menu from "./Menu";
 import { useRouter } from "next/router";
 import Remocon from "./Remocon";
 import { LolmenuInfo } from "./Menulist";
+import { ProjectList } from "../common/ProjectList";
 
 interface Props {
   children: React.ReactNode;
@@ -23,7 +24,7 @@ const projectSwitch = (project: string) => {
 
 const LayoutSection = ({ children }: Props) => {
   const router = useRouter();
-  const project = router.route.replace(/\//gi, "").replace("[[...slug]]", "");
+  const project = ProjectList.filter((name) => router.asPath.includes(name))[0];
   return (
     <>
       <div className={styles.section_wrap}>

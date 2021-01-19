@@ -1,0 +1,30 @@
+@import "../../../../styles/globals.scss";
+
+.nextbtn_container {
+  display: flex;
+}
+
+@mixin next_btn {
+  @include button-blue;
+  width: 8rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin: 1.25rem 0;
+  font-family: $font-bold;
+  font-size: 1rem;
+}
+
+.next_btnWrap {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 4rem;
+}
+
+.next_btn {
+  @include next_btn;
+  margin-right: 2vw;
+}
+
+.illust {
+  width: 20vw;
+}

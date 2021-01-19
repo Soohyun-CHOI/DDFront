@@ -152,3 +152,20 @@ export const Lolbody_toggle = [
     ],
   },
 ];
+
+export const Lolbody_video = [
+  {
+    chapter: "01",
+    video: true,
+  },
+  {
+    chapter: "02",
+    video: true,
+    submenu: [
+      {
+        number: 1,
+        video: true,
+      },
+    ],
+  },
+];

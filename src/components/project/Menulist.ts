@@ -44,10 +44,11 @@ export const LolmenuInfo = [
     project: "lol",
     chapter: "05",
     name: "마치면서",
+    beforeLastmenu: true,
   },
   {
     project: "lol",
-    chapter: "+PLUS",
+    chapter: "plus",
     name: "직접 해보기",
     plus: true,
   },

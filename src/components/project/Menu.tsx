@@ -7,7 +7,8 @@ interface MenuProps {
     project: string;
     chapter: string;
     name: string;
-    submenu?: Array<{ number: number; name: string }>;
+    beforeLastmenu?: boolean;
+    submenu?: Array<{ number: number; name: string; beforeLastmenu?: boolean }>;
     plus?: boolean;
   };
 }
@@ -27,7 +28,7 @@ const Menu = ({ menuInfo }: MenuProps) => {
                   : styles.plus_menu
               }
             >
-              {menuInfo.chapter}. {menuInfo.name}
+              {`+${menuInfo.chapter.toUpperCase()}`}. {menuInfo.name}
             </div>
           </a>
         </Link>
