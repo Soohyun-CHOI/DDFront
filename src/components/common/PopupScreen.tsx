@@ -23,7 +23,7 @@ const PopupScreen = ({ child, isLogout }: PopupScreenProps) => {
         <div className={styles.popup_wrap}>
           {isLogoutPopup ? (
             <div className={styles.logout_wrap}>
-              <div className={styles.logout_message}>로그아웃 되었습니다</div>
+              <div className={styles.logout_message}>로그아웃 되었습니다.</div>
               <div className={styles.logout_btn} onClick={close}>
                 확인
               </div>
