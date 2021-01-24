@@ -16,9 +16,9 @@ export const getBasicInformation = async () => {
   }
 };
 
-export const logout = () => {
-  console.log("실행됨");
-  const router = useRouter();
-  localStorage.removeItem("DD_access");
-  router.reload();
-};
+// export const logout = () => {
+//   console.log("실행됨");
+//   const router = useRouter();
+//   localStorage.removeItem("DD_access");
+//   router.reload();
+// };

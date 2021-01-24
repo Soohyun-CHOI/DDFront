@@ -75,12 +75,11 @@
 }
 
 .profile_editIcon {
-  font-size: 1rem;
   color: $color-black;
 
   position: relative;
-  left: 0.475rem;
-  top: 0.475rem;
+  left: 0.3rem;
+  top: 0.3rem;
 }
 
 .profile_imageEditBasic {
@@ -93,6 +92,10 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.profile_middleWrap {
+  width: 12.5rem;
 }
 
 .profile_input {
@@ -114,6 +117,28 @@
 .profile_checkWrap {
   margin-top: 0.5rem;
   text-align: right;
+  display: flex;
+  justify-content: space-between;
+}
+
+.check_resultTrue {
+  display: flex;
+  align-items: center;
+  font-size: 0.5rem;
+  font-family: $font-regular;
+  color: #5a9ca1;
+  width: 65%;
+  flex-wrap: wrap;
+}
+
+.check_resultFalse {
+  display: flex;
+  align-items: center;
+  font-size: 0.5rem;
+  font-family: $font-regular;
+  color: #d48181;
+  width: 65%;
+  flex-wrap: wrap;
 }
 
 .profile_checkbtn {
@@ -131,6 +156,7 @@
   font-family: $font-bold;
   color: #c0c0c0;
   transition-duration: 0.2s;
+  width: 30%;
 
   &:hover {
     cursor: pointer;

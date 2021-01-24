@@ -66,14 +66,16 @@
   margin-top: 0.5rem;
   font-family: $font-regular;
   color: #5a9ca1;
-  text-align: left;
+  display: inline-block;
+  margin-left: -22.5rem;
 }
 
 .check_resultFalse {
   margin-top: 0.5rem;
   font-family: $font-regular;
   color: #d48181;
-  text-align: left;
+  display: inline-block;
+  margin-left: -22.5rem;
 }
 
 .content_startbtn {

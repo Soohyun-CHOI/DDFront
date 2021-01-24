@@ -12,9 +12,7 @@ const Callback = () => {
 
   const [token, setToken] = useState("");
   const [showRender, setShowRender] = useState(false);
-  const [info, setInfo] = useState(
-    "데이타덕에서 사용하실 닉네임을 입력해주세요."
-  );
+  const [info, setInfo] = useState("닉네임을 입력해주세요.");
   const [isCheckBtnClicked, setIsCheckBtnClicked] = useState(false);
   const [checkResult, setCheckResult] = useState("");
   const [email, setEmail] = useState("");
@@ -46,20 +44,31 @@ const Callback = () => {
 
   const checkDuplication = async () => {
     try {
-      const response = await api.post(`api/v1/users/check_nickname/`, {
-        nickname,
-      });
-      if (response.data.exist) {
-        // alert("이미 사용 중인 닉네임입니다.");
-        setInfo("다른 닉네임을 입력해주세요.");
+      // 닉네임을 입력하지 않았을 경우
+      if (info === "닉네임을 입력해주세요.") {
         setIsCheckBtnClicked(true);
-        setCheckResult("이미 존재하는 닉네임입니다.");
+        setCheckResult("닉네임을 입력해주세요.");
       } else {
-        setIsNicknameAllowed(true);
-        // alert("사용 가능한 닉네임입니다.");
-        setInfo("사용 가능한 닉네임입니다.");
-        setIsCheckBtnClicked(true);
-        setCheckResult("사용 가능한 닉네임입니다.");
+        const response = await api.post(`api/v1/users/check_nickname/`, {
+          nickname,
+        });
+        if (isNicknameAllowed) {
+          if (response.data.exist) {
+            // alert("이미 사용 중인 닉네임입니다.");
+            setInfo("다른 닉네임을 입력해주세요.");
+            setIsCheckBtnClicked(true);
+            setCheckResult("이미 존재하는 닉네임입니다.");
+          } else {
+            setIsNicknameAllowed(true);
+            // alert("사용 가능한 닉네임입니다.");
+            setInfo("사용 가능한 닉네임입니다.");
+            setIsCheckBtnClicked(true);
+            setCheckResult("사용 가능한 닉네임입니다.");
+          }
+        } else {
+          setIsCheckBtnClicked(true);
+          setCheckResult(info);
+        }
       }
     } catch (err) {
       console.log(err);
@@ -86,7 +95,7 @@ const Callback = () => {
     }
 
     if (value == null || value == "") {
-      setInfo("데이타덕에서 사용하실 닉네임을 입력해주세요.");
+      setInfo("닉네임을 입력해주세요.");
     } else if (value.search(/\s/) != -1) {
       setInfo("닉네임은 빈 칸을 포함할 수 없습니다.");
     } else if (nickLength < 2 || nickLength > 16) {
@@ -94,9 +103,10 @@ const Callback = () => {
     } else if (specialCheck.test(value)) {
       setInfo("닉네임은 '_, -'를 제외한 특수문자를 포함할 수 없습니다.");
     } else {
-      setInfo("닉네임 중복검사를 해주세요.");
+      setIsNicknameAllowed(true);
     }
   };
+
   useEffect(() => {
     init();
   }, []);
@@ -271,10 +281,5 @@ const Callback = () => {
     </div>
   ) : null;
 };
-
-// export async function getServerSideProps({ query }) {
-//   const data = query.code;
-//   return { props: { data } };
-// }
 
 export default Callback;
