@@ -25,7 +25,7 @@ const Layout = ({ children }: Props) => {
       {slug.length > 0 && !slug.includes("plus") && (
         <Nextbutton project={project} />
       )}
-      {slug.length > 0 && !slug.includes("plus") && <CommentWrap />}
+      {/* {slug.length > 0 && !slug.includes("plus") && <CommentWrap />} */}
       <Footer />
     </div>
   );

@@ -28,7 +28,12 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
   const [nickname, setNickname] = useState("");
   const [isNicknameAllowed, setIsNicknameAllowed] = useState(false);
   const specialCheck = /[`~!@#$%^&*|\\\'\";:\/?]/;
+  const [image, setImage] = useState();
+  const [isImageChanged, setIsImageChanged] = useState(false);
+  const [isNicknameChanged, setIsNicknameChanged] = useState(false);
   const inputEl = useRef(null);
+  const fileInputEl = useRef(null);
+  const imgRef = useRef(null);
 
   const logout = () => {
     console.log("로그아웃 실행됨");
@@ -36,19 +41,73 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
     Router.reload();
   };
 
+  const fileInputClick = () => {
+    fileInputEl.current.click();
+  };
+
+  const fileInputChange = (e) => {
+    setImage(e.target.files[0]);
+    setIsImageChanged(true);
+    imgRef.current.src = URL.createObjectURL(e.target.files[0]);
+  };
+
+  // const changeDefaultImgClicked = (e) => {
+  //   imgRef.current.src = "images/profile.jpg";
+  //   setIsImageChanged(true);
+  //   console.log(imgRef.current);
+  // };
+
   const submit = async () => {
-    if (!isNicknameAllowed) {
-      alert("닉네임을 확인해주세요");
-    } else {
+    // 프로필 사진만 변경했을 경우
+    if (isImageChanged && !isNicknameChanged) {
+      let fileData = new FormData();
+      fileData.append("image", image);
       try {
-        putApi("api/v1/users/my_profile/", {
-          nickname,
-        });
-        setCheckResult("");
-        inputEl.current.value = "";
-        alert("프로필이 수정되었습니다 !");
-      } catch {
-        alert("오류가 발생했습니다. 닉네임을 다시 작성해주세요.");
+        await putApi(`/api/v1/users/my_profile/`, fileData);
+        alert("프로필이 수정되었습니다.");
+        setIsImageChanged(false);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
+    // 닉네임만 변경했을 경우
+    else if (!isImageChanged && isNicknameChanged) {
+      if (!isNicknameAllowed) {
+        alert("닉네임을 확인해주세요");
+      } else {
+        try {
+          putApi("api/v1/users/my_profile/", {
+            nickname,
+          });
+          setCheckResult("");
+          inputEl.current.value = "";
+          alert("프로필이 수정되었습니다.");
+          setIsNicknameChanged(false);
+        } catch {
+          alert("오류가 발생했습니다. 닉네임을 다시 작성해주세요.");
+        }
+      }
+    }
+
+    // 프로필 사진, 닉네임 모두 변경했을 경우
+    else {
+      if (!isNicknameAllowed) {
+        alert("닉네임을 확인해주세요");
+      } else {
+        try {
+          let fileData = new FormData();
+          fileData.append("image", image);
+          fileData.append("nickname", nickname);
+          putApi("api/v1/users/my_profile/", fileData);
+          setCheckResult("");
+          setIsImageChanged(false);
+          setIsNicknameChanged(false);
+          inputEl.current.value = "";
+          alert("프로필이 수정되었습니다.");
+        } catch {
+          alert("오류가 발생했습니다. 프로필을 다시 작성해주세요.");
+        }
       }
     }
   };
@@ -91,6 +150,7 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
     const value = e.target.value;
     setNickname(value);
     setIsNicknameAllowed(false);
+    setIsNicknameChanged(true);
 
     let nickLength = 0;
     if (value) {
@@ -127,6 +187,8 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
         setCheckResult("");
         setIsCheckBtnClicked(false);
         setInfo("닉네임을 입력해주세요.");
+        setIsNicknameChanged(false);
+        setIsImageChanged(false);
       }}
     >
       {(close) => (
@@ -146,24 +208,40 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
               <div className={styles.profile_imageWrap}>
                 <div className={styles.profile_imageSection}>
                   <img
+                    ref={imgRef}
                     className={styles.profile_image}
-                    src={`http://localhost:8000${userProfile.image}.jpg`}
+                    src={`http://localhost:8000${userProfile.image}`}
                     // src={"images/profile.jpg"}
                     alt="ex"
                     width="150"
                     height="150"
                   />
                 </div>
-                <div className={styles.profile_imageEditBtn}>
+
+                <div
+                  className={styles.profile_imageEditBtn}
+                  onClick={fileInputClick}
+                >
+                  <input
+                    ref={fileInputEl}
+                    type="file"
+                    name="profile"
+                    id="profile"
+                    className={styles.profile_imageEditInput}
+                    onChange={(e) => fileInputChange(e)}
+                  />
                   <FontAwesomeIcon
                     className={styles.profile_editIcon}
                     icon={faPenNib}
                     size="lg"
                   />
                 </div>
-                <div className={styles.profile_imageEditBasic}>
+                {/* <div
+                  className={styles.profile_imageEditBasic}
+                  onClick={(e) => changeDefaultImgClicked(e)}
+                >
                   기본 이미지로 변경
-                </div>
+                </div> */}
               </div>
               <div className={styles.profile_middleWrap}>
                 <div className={styles.profile_inputWrap}>
