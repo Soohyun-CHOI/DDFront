@@ -3,6 +3,8 @@ import Popup from "reactjs-popup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { faPenNib } from "@fortawesome/free-solid-svg-icons";
+import { getApi, postApi, putApi } from "../../services/api";
+import { useEffect } from "react";
 
 interface PopupScreenProps {
   child: React.ReactElement;
@@ -10,7 +12,17 @@ interface PopupScreenProps {
 }
 
 const PopupScreen = ({ child, isLogout }: PopupScreenProps) => {
+  // isLogoutPopup ? 로그아웃 : 프로필 수정
   const isLogoutPopup: Boolean = isLogout;
+
+  // useEffect(() => {
+  //   init();
+  // }, []);
+
+  const init = async () => {
+    const userProfile = await getApi("/api/v1/users/my_profile/");
+    // console.log(userProfile);
+  };
 
   return (
     <Popup
@@ -18,6 +30,7 @@ const PopupScreen = ({ child, isLogout }: PopupScreenProps) => {
       modal
       nested
       overlayStyle={{ backdropFilter: "blur(2.5px)" }}
+      onOpen={init}
     >
       {(close) => (
         <div className={styles.popup_wrap}>

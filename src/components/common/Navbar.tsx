@@ -3,10 +3,15 @@ import Link from "next/link";
 import NavbarLayout from "./NavbarLayout";
 import PopupScreen from "./PopupScreen";
 import Popup from "reactjs-popup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { getBasicInformation, logout } from "../../utils/authUtils";
 
+export const googleaddress =
+  "https://accounts.google.com/o/oauth2/auth?client_id=979510034981-hd4l7ldbj43c64q16q1dbpmcqa3r417e.apps.googleusercontent.com&redirect_uri=http://127.0.0.1:3000/auth/social/callback/google-oauth2/&response_type=code&scope=email";
 const Navbar = () => {
-  const [isLogined, setIsLogined] = useState<Boolean>(true);
+  const [isLogined, setIsLogined] = useState<Boolean>(false);
+  // getBasicInformation().then((res) => console.log(res));
   return (
     <NavbarLayout>
       <div className={styles.nav_titleWrap}>
@@ -19,8 +24,16 @@ const Navbar = () => {
         <div className={styles.nav_authorize}>
           {!isLogined ? (
             <>
-              <li className={styles.nav_li}>로그인</li>
-              <li className={styles.nav_li}>회원가입</li>
+              <Link href={googleaddress}>
+                <a className={styles.login_btn}>
+                  <li className={styles.nav_li}>로그인</li>
+                </a>
+              </Link>
+              <Link href={googleaddress}>
+                <a className={styles.signup_btn}>
+                  <li className={styles.nav_li}>회원가입</li>
+                </a>
+              </Link>
             </>
           ) : (
             // Popup이 SSR되지 않게 해줌

@@ -34,7 +34,7 @@ const overviewSwitch = (project: string) => {
           />
           {/* 추후에 구글 드라이브 다운로드 링크 고쳐야 함 */}
           <Link
-            href={`https://drive.google.com/drive/folders/1q1lFAbs3-g-49nROIzqQeO_HMnOriqOh?usp=sharing`}
+            href={`https://drive.google.com/drive/folders/0B7GVZ0YGMP0VfkdsTmc3ZWRoLWlhb0pSSUI2dGt3WW5yOVgwUy1vSW1oM244UFFNNTJSdk0?usp=sharing`}
           >
             <a className={styles.download_btnWrap}>
               <div className={styles.download_btn}>다운로드</div>

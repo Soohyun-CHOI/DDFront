@@ -25,6 +25,12 @@
   justify-content: flex-end;
 }
 
+.login_btn,
+.signup_btn {
+  text-decoration: none;
+  color: #333333;
+}
+
 .nav_li {
   list-style: none;
   margin-left: 2rem;
