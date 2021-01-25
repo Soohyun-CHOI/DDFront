@@ -3,9 +3,10 @@ import Popup from "reactjs-popup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { faPenNib } from "@fortawesome/free-solid-svg-icons";
-import { getApi, postApi, putApi, api } from "../../services/api";
+import { putApi, api, postApi, getApi } from "../../services/api";
 import Router from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { serverUrl } from "../../../pages/_app";
 
 interface PopupScreenProps {
   child: React.ReactElement;
@@ -28,15 +29,17 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
   const [nickname, setNickname] = useState("");
   const [isNicknameAllowed, setIsNicknameAllowed] = useState(false);
   const specialCheck = /[`~!@#$%^&*|\\\'\";:\/?]/;
+
+  const [imageSrc, setImageSrc] = useState(`${serverUrl}${userProfile.image}`);
   const [image, setImage] = useState();
   const [isImageChanged, setIsImageChanged] = useState(false);
   const [isNicknameChanged, setIsNicknameChanged] = useState(false);
+  const [isDefaultImgBtnClicked, setIsDefaultImgBtnClicked] = useState(false);
   const inputEl = useRef(null);
   const fileInputEl = useRef(null);
   const imgRef = useRef(null);
 
   const logout = () => {
-    console.log("로그아웃 실행됨");
     localStorage.removeItem("DD_access");
     Router.reload();
   };
@@ -48,26 +51,49 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
   const fileInputChange = (e) => {
     setImage(e.target.files[0]);
     setIsImageChanged(true);
+    setIsDefaultImgBtnClicked(false);
     imgRef.current.src = URL.createObjectURL(e.target.files[0]);
   };
 
-  // const changeDefaultImgClicked = (e) => {
-  //   imgRef.current.src = "images/profile.jpg";
-  //   setIsImageChanged(true);
-  //   console.log(imgRef.current);
-  // };
+  // 기본 이미지로 변경 버튼을 눌렀을 경우
+  const changeDefaultImgClicked = (e) => {
+    imgRef.current.src = "images/profile.jpg";
+    setIsImageChanged(true);
+    setIsDefaultImgBtnClicked(true);
+  };
 
   const submit = async () => {
     // 프로필 사진만 변경했을 경우
     if (isImageChanged && !isNicknameChanged) {
-      let fileData = new FormData();
-      fileData.append("image", image);
-      try {
-        await putApi(`/api/v1/users/my_profile/`, fileData);
-        alert("프로필이 수정되었습니다.");
-        setIsImageChanged(false);
-      } catch (e) {
-        console.log(e);
+      // 기본 이미지로 변경했을 경우
+      if (isDefaultImgBtnClicked) {
+        try {
+          await postApi("/api/v1/users/my_profile/to_default_image/", {});
+          alert("프로필이 수정되었습니다.");
+          setIsDefaultImgBtnClicked(false);
+          setIsImageChanged(false);
+          await getApi(`/api/v1/users/my_profile/`).then((res) => {
+            setImageSrc(`${serverUrl}${res.image}`);
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      }
+      // 일반적인 사진 업로드로 프로필 사진을 변경했을 경우
+      else {
+        let fileData = new FormData();
+        fileData.append("image", image);
+        try {
+          await putApi(`/api/v1/users/my_profile/`, fileData);
+          alert("프로필이 수정되었습니다.");
+          setIsImageChanged(false);
+          setIsDefaultImgBtnClicked(false);
+          await getApi(`/api/v1/users/my_profile/`).then((res) => {
+            setImageSrc(`${serverUrl}${res.image}`);
+          });
+        } catch (e) {
+          console.log(e);
+        }
       }
     }
 
@@ -77,7 +103,7 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
         alert("닉네임을 확인해주세요");
       } else {
         try {
-          putApi("api/v1/users/my_profile/", {
+          await putApi("api/v1/users/my_profile/", {
             nickname,
           });
           setCheckResult("");
@@ -95,18 +121,44 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
       if (!isNicknameAllowed) {
         alert("닉네임을 확인해주세요");
       } else {
-        try {
-          let fileData = new FormData();
-          fileData.append("image", image);
-          fileData.append("nickname", nickname);
-          putApi("api/v1/users/my_profile/", fileData);
-          setCheckResult("");
-          setIsImageChanged(false);
-          setIsNicknameChanged(false);
-          inputEl.current.value = "";
-          alert("프로필이 수정되었습니다.");
-        } catch {
-          alert("오류가 발생했습니다. 프로필을 다시 작성해주세요.");
+        // 프로필 사진을 기본 이미지로, 닉네임을 변경했을 경우
+        if (isDefaultImgBtnClicked) {
+          try {
+            let fileData = new FormData();
+            fileData.append("nickname", nickname);
+            await putApi("api/v1/users/my_profile/", fileData);
+            await postApi("/api/v1/users/my_profile/to_default_image/", {});
+
+            setCheckResult("");
+            setIsImageChanged(false);
+            setIsDefaultImgBtnClicked(false);
+            setIsNicknameChanged(false);
+            inputEl.current.value = "";
+            alert("프로필이 수정되었습니다.");
+
+            await getApi(`/api/v1/users/my_profile/`).then((res) => {
+              setImageSrc(`${serverUrl}${res.image}`);
+            });
+          } catch {
+            alert("오류가 발생했습니다. 프로필을 다시 작성해주세요.");
+          }
+        } else {
+          try {
+            let fileData = new FormData();
+            fileData.append("image", image);
+            fileData.append("nickname", nickname);
+            await putApi("api/v1/users/my_profile/", fileData);
+            setCheckResult("");
+            setIsImageChanged(false);
+            setIsNicknameChanged(false);
+            inputEl.current.value = "";
+            alert("프로필이 수정되었습니다.");
+            await getApi(`/api/v1/users/my_profile/`).then((res) => {
+              setImageSrc(`${serverUrl}${res.image}`);
+            });
+          } catch {
+            alert("오류가 발생했습니다. 프로필을 다시 작성해주세요.");
+          }
         }
       }
     }
@@ -177,6 +229,7 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
       setIsNicknameAllowed(true);
     }
   };
+
   return (
     <Popup
       trigger={child}
@@ -189,6 +242,7 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
         setInfo("닉네임을 입력해주세요.");
         setIsNicknameChanged(false);
         setIsImageChanged(false);
+        setIsDefaultImgBtnClicked(false);
       }}
     >
       {(close) => (
@@ -210,8 +264,7 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
                   <img
                     ref={imgRef}
                     className={styles.profile_image}
-                    src={`http://localhost:8000${userProfile.image}`}
-                    // src={"images/profile.jpg"}
+                    src={imageSrc}
                     alt="ex"
                     width="150"
                     height="150"
@@ -236,12 +289,12 @@ const PopupScreen = ({ child, isLogout, userProfile }: PopupScreenProps) => {
                     size="lg"
                   />
                 </div>
-                {/* <div
+                <div
                   className={styles.profile_imageEditBasic}
                   onClick={(e) => changeDefaultImgClicked(e)}
                 >
                   기본 이미지로 변경
-                </div> */}
+                </div>
               </div>
               <div className={styles.profile_middleWrap}>
                 <div className={styles.profile_inputWrap}>

@@ -157,14 +157,17 @@ export const Lolbody_video = [
   {
     chapter: "01",
     video: true,
+    url: "https://www.youtube.com/watch?v=R5_Is8Hdqm8",
   },
   {
     chapter: "02",
     video: true,
+    url: "https://www.youtube.com/watch?v=BS7tz2rAOSA",
     submenu: [
       {
         number: 1,
         video: true,
+        url: "https://www.youtube.com/watch?v=xxa1NcVVGSw",
       },
     ],
   },

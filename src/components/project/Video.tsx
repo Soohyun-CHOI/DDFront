@@ -5,16 +5,18 @@ import Link from "next/link";
 import { matchMenuinfo, matchNextPageURL } from "./Nextbutton";
 import { ProjectList } from "../common/ProjectList";
 
-const URL = "https://www.youtube.com/watch?v=R5_Is8Hdqm8";
+interface videoProps {
+  url: string;
+}
 
-const Video = () => {
+const Video = ({ url }: videoProps) => {
   const router = useRouter();
   const project = ProjectList.filter((name) => router.asPath.includes(name))[0];
   const path = router.query.slug;
 
   return (
     <div className={styles.video_wrap}>
-      <ReactPlayer url={URL} controls width="100%" />
+      <ReactPlayer url={url} controls width="100%" />
       <div className={styles.buttonSection_wrap}>
         {path.length === 1 && path[0] === "01" && (
           // 추후에 구글 드라이브 다운로드 링크 고쳐야 함

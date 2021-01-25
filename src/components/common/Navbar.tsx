@@ -44,7 +44,7 @@ const Navbar = () => {
         });
       }
     });
-  }, []);
+  }, [isLogined]);
 
   return (
     <NavbarLayout>

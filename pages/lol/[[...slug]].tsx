@@ -27,7 +27,7 @@ const matchVideo = (slug: string | string[]): JSX.Element => {
   if (slug.length === 1) {
     // 메인 메뉴에 비디오가 존재할 경우
     if (mainMenuObj?.video) {
-      return <Video key={Math.random().toString(36)} />;
+      return <Video key={Math.random().toString(36)} url={mainMenuObj.url} />;
     }
     return null;
   }
@@ -35,7 +35,7 @@ const matchVideo = (slug: string | string[]): JSX.Element => {
   if (slug.length === 2) {
     // 서브 메뉴에 비디오가 존재할 경우
     if (subMenuObj?.video) {
-      return <Video key={Math.random().toString(36)} />;
+      return <Video key={Math.random().toString(36)} url={subMenuObj.url} />;
     }
     return null;
   }

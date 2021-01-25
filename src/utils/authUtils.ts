@@ -1,6 +1,5 @@
 // import {get_header} from "../services/config";
 import { api } from "../services/api";
-import { useRouter } from "next/router";
 
 export const getBasicInformation = async () => {
   try {

@@ -4,6 +4,8 @@ import Layout from "../src/components/common/Layout";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
+export const serverUrl = "http://localhost:8000";
+
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   return (
