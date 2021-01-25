@@ -1,6 +1,6 @@
 import qs from "qs";
 import { useEffect, useState } from "react";
-import styles from "../../../styles/callback.module.scss";
+import styles from "./styles/callback.module.scss";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -265,7 +265,7 @@ const Callback = () => {
                   <div className="icon-wrap">
                     <FontAwesomeIcon icon={faCheck} className="icon" />
                   </div>
-                  마케팅 이메일 수신 동의
+                  마케팅 정 수신 동의
                   <div className="option" style={{ color: "#c8c8c8" }}>
                     (선택)
                   </div>
