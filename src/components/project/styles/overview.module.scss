@@ -1,0 +1,30 @@
+@import "../../../../styles/globals.scss";
+
+@mixin overview_btn {
+  @include button-blue;
+  width: 8rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin: 1.25rem 0;
+  font-family: $font-bold;
+  font-size: 1rem;
+}
+
+.download_btnWrap {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.download_btn {
+  @include overview_btn;
+}
+
+.start_btnWrap {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 4rem;
+}
+
+.start_btn {
+  @include overview_btn;
+}

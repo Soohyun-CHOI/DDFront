@@ -1,0 +1,136 @@
+@import "../../../../styles/globals.scss";
+
+.toggle_wrap {
+  margin-top: -0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.toggleBtn_wrap {
+  @include flex-box;
+  justify-content: flex-end;
+}
+
+@mixin toggle-btn {
+  $height: 1.5rem;
+  height: $height;
+  line-height: $height;
+  border: 1px solid;
+  border-radius: 100px;
+  background: white;
+  text-align: center;
+  font-family: $font-bold;
+  font-size: 0.75rem;
+  transition-duration: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.statistics_toggle {
+  @include toggle-btn;
+  width: 2.75rem;
+  color: $color-blue-dark;
+}
+
+.python_toggle {
+  @include toggle-btn;
+  width: 3.5rem;
+  margin-left: 0.25rem;
+  color: $color-blue;
+}
+
+.statisticsToggle_selected {
+  color: white;
+  background-color: $color-blue-dark;
+  border: 1px solid $color-blue-dark;
+}
+
+.pythonToggle_selected {
+  color: white;
+  background-color: $color-blue;
+  border: 1px solid $color-blue;
+}
+
+@mixin toggle-content {
+  display: flex;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 3px;
+}
+
+@mixin toggle-title {
+  width: 30%;
+  padding: 0.5rem;
+}
+
+@mixin toggle-subtitle {
+  font-family: $font-bold;
+  font-size: 0.8rem;
+}
+
+@mixin toggle-maintitle {
+  margin-top: 0.25rem;
+  font-family: $font-bold;
+  font-size: 1.4rem;
+  color: $color-black;
+}
+
+@mixin toggle-des {
+  width: 70%;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  line-height: 1.25rem;
+  font-family: $font-light;
+  font-size: 0.75rem;
+  color: $color-black;
+  white-space: pre-wrap;
+}
+
+.statisticsContent_wrap {
+  @include toggle-content;
+  border: 1px solid $color-blue-dark;
+  background-color: rgba(75, 101, 128, 0.1);
+}
+
+.statisticsContent_Title {
+  @include toggle-title;
+}
+
+.statisticsContent_subTitle {
+  @include toggle-subtitle;
+  color: $color-blue-dark;
+}
+
+.statisticsContent_mainTitle {
+  @include toggle-maintitle;
+}
+
+.statisticsContent_Des {
+  @include toggle-des;
+  border-left: 1px solid $color-blue-dark;
+}
+
+.pythonContent_wrap {
+  @include toggle-content;
+  border: 1px solid $color-blue;
+  background-color: rgba(90, 156, 161, 0.05);
+}
+
+.pythonContent_Title {
+  @include toggle-title;
+}
+
+.pythonContent_subTitle {
+  @include toggle-subtitle;
+  color: $color-blue;
+}
+
+.pythonContent_mainTitle {
+  @include toggle-maintitle;
+}
+
+.pythonContent_Des {
+  @include toggle-des;
+  border-left: 1px solid $color-blue;
+}

@@ -1,0 +1,33 @@
+@import "../../../../styles/globals.scss";
+
+.buttonSection_wrap {
+  @include flex-box;
+  align-items: flex-start;
+  margin: 1.25rem 0 2.5rem;
+}
+
+.data_buttonName {
+  text-decoration: none;
+}
+
+.data_button {
+  @include button-red;
+  width: 9.5rem;
+  padding: 0.75rem 0;
+
+  font-family: $font-bold;
+  font-size: 1rem;
+}
+
+.next_buttonName {
+  text-decoration: none;
+}
+
+.next_button {
+  @include button-blue;
+  width: 7.125rem;
+  padding: 0.75rem 0;
+
+  font-family: $font-bold;
+  font-size: 1rem;
+}

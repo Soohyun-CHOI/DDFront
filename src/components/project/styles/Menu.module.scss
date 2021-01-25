@@ -1,0 +1,66 @@
+@import "../../../../styles/globals.scss";
+
+.main_menuWrap {
+  text-decoration: none;
+}
+
+.main_menu {
+  padding: 1.125rem 0 1.125rem 1.25rem;
+  font-family: $font-light;
+  font-size: 0.875rem;
+  color: $color-black;
+
+  &:hover {
+    font-family: $font-regular;
+    color: $color-blue;
+    background-color: rgba(90, 156, 161, 0.05);
+  }
+}
+
+.sub_menuWrap {
+  text-decoration: none;
+}
+
+.sub_menu {
+  padding: 1.125rem 0 1.125rem 3rem;
+  font-family: $font-light;
+  font-size: 0.875rem;
+  color: $color-black;
+
+  &:hover {
+    font-family: $font-regular;
+    color: $color-blue;
+    background-color: rgba(90, 156, 161, 0.05);
+  }
+}
+
+.plus_menu {
+  padding: 1.125rem 0 1.125rem 1.25rem;
+  font-family: $font-regular;
+  font-size: 0.875rem;
+  color: $color-blue;
+
+  &:hover {
+    background-color: rgba(90, 156, 161, 0.05);
+  }
+}
+
+.selected_mainmenu {
+  border-left: 4px solid $color-blue;
+  padding: 1.125rem 0 1.125rem 1.25rem;
+  font-family: $font-regular;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: $color-blue;
+  background-color: rgba(90, 156, 161, 0.05);
+}
+
+.selected_submenu {
+  border-left: 4px solid $color-blue;
+  padding: 1.125rem 0 1.125rem 3rem;
+  font-family: $font-regular;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: $color-blue;
+  background-color: rgba(90, 156, 161, 0.05);
+}

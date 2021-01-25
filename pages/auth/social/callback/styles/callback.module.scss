@@ -1,0 +1,93 @@
+@import "../../../../../styles/globals";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  position: relative;
+}
+
+.nickname_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.illust_wrap {
+  text-align: center;
+}
+
+.content_wrap {
+  text-align: center;
+}
+
+.content_title {
+  font-family: $font-bold;
+  font-size: 2rem;
+}
+
+.content_inputSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  align-items: center;
+}
+
+.content_input {
+  width: 25rem;
+  height: 3rem;
+  font-size: 2rem;
+  padding: 0 0.5rem 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+.content_checkDupbtn {
+  margin-left: 2rem;
+  border: 1px solid #c0c0c0;
+  text-align: center;
+  border-radius: 100px;
+  color: #c0c0c0;
+  display: inline-block;
+  width: 6rem;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  font-family: $font-bold;
+  font-size: 1rem;
+  &:hover {
+    cursor: pointer;
+    // hover background 필요(색깔 잘 모르겠음 ㅠ)
+  }
+}
+
+.check_resultTrue {
+  margin-top: 0.5rem;
+  font-family: $font-regular;
+  color: #5a9ca1;
+  display: inline-block;
+  margin-left: -22.5rem;
+}
+
+.check_resultFalse {
+  margin-top: 0.5rem;
+  font-family: $font-regular;
+  color: #d48181;
+  display: inline-block;
+  margin-left: -22.5rem;
+}
+
+.content_startbtn {
+  @include button-blue;
+  display: inline-block;
+  width: 8rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin-top: 3rem;
+  font-family: $font-bold;
+  font-size: 1rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
