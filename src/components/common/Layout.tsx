@@ -22,7 +22,8 @@ const Layout = ({ children }: Props) => {
       <Navbar />
       {children}
       {/* 프로젝트 메인(overview) 페이지나 마지막 메뉴(plus)가 아닌경우에만 CommentWrap,Nextbutton 컴포넌트 리턴 */}
-      {slug.length > 0 && !slug.includes("plus") && (
+      {/* 나중에 작업후 !slug.includes("plus")로 고치기 */}
+      {slug.length > 0 && !slug.includes("05") && (
         <Nextbutton project={project} />
       )}
       {/* {slug.length > 0 && !slug.includes("plus") && <CommentWrap />} */}

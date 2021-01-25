@@ -39,17 +39,19 @@ export const LolmenuInfo = [
       { number: 1, name: "앙상블 모델" },
       { number: 2, name: "성능 비교하기" },
     ],
+    beforeLastmenu: true,
   },
   {
     project: "lol",
     chapter: "05",
     name: "마치면서",
-    beforeLastmenu: true,
+    // 원래 이 자리에 있어야함
+    // beforeLastmenu: true,
   },
-  {
-    project: "lol",
-    chapter: "plus",
-    name: "직접 해보기",
-    plus: true,
-  },
+  // {
+  //   project: "lol",
+  //   chapter: "plus",
+  //   name: "직접 해보기",
+  //   plus: true,
+  // },
 ];

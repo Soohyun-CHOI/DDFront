@@ -18,7 +18,7 @@ export const postApi = async (url, data) => {
     const headers = token ? { Authorization: `Bearer ${token}` } : null;
     await api.post(url, data, { headers });
   } catch (err) {
-    console.log("postApi error: " + err);
+    // console.log("postApi error: " + err);
     throw err;
   }
 };
@@ -29,7 +29,7 @@ export const putApi = async (url, data) => {
     const headers = token ? { Authorization: `Bearer ${token}` } : null;
     await api.put(url, data, { headers });
   } catch (err) {
-    console.log("putApi error: " + err);
+    // console.log("putApi error: " + err);
     throw err;
   }
 };
@@ -51,7 +51,7 @@ export const getApi = async (url) => {
     const response = await api.get(url, { headers });
     return response.data;
   } catch (err) {
-    console.log("getApi error: " + err);
+    // console.log("getApi error: " + err);
     throw err;
   }
 };

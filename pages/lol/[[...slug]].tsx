@@ -9,8 +9,8 @@ import BodyDescription from "../../src/components/project/BodyDescription";
 import BodyCodebox from "../../src/components/project/BodyCodebox";
 import { Lolbody_codebox } from "../../src/components/project/BodyContentList";
 import Togglebutton from "../../src/components/project/Togglebutton";
-import FileDropzone from "../../src/components/project/FileDropzone";
 import { Lolbody_video } from "../../src/components/project/BodyContentList";
+// import FileDropzone from "../../src/components/project/FileDropzone";
 
 const subTitle = "LOL 승패 예측 프로젝트";
 let subTitle2;
@@ -100,7 +100,8 @@ const matchBody = (slug: string | string[]) => {
   if (slug.length === 1) {
     // 맨 마지막 메뉴(plus) 일때
     if (slug[0] === "plus") {
-      return <FileDropzone />;
+      return null;
+      // return <FileDropzone />;
     } else {
       return (
         <>
