@@ -156,7 +156,7 @@ const Callback = () => {
   return showRender ? (
     <div className="container">
       <div className="illust_wrap">
-        <img src="/images/submit_before.jpg" alt="ex" width="300" />
+        <img src="/images/submit_after.png" alt="ex" width="150" />
         <div className="content_title">
           닉네임을 설정하고 바로 시작해 보세요!
         </div>
@@ -226,9 +226,7 @@ const Callback = () => {
                   <FontAwesomeIcon icon={faCheck} className="icon" />
                 </div>
                 개인정보 수집•이용 동의
-                <div className="option">
-                  (필수)
-                </div>
+                <div className="option">(필수)</div>
               </label>
             </div>
             <div className="text">
