@@ -81,13 +81,17 @@
   margin-left: 6rem;
   padding-left: 3rem;
   border-left: 1px solid #dcdcdc;
-}
 
-.callback_notice {
-  margin-bottom: 1rem;
-  font-family: $font-light;
-  font-size: 0.9rem;
-  color: $color-black;
+  .callback_notice {
+    margin-bottom: 1rem;
+    font-family: $font-light;
+    font-size: 0.9rem;
+    color: $color-black;
+  }
+
+  .check-all {
+    font-family: $font-bold;
+  }
 
   input[type="checkbox"] {
     display: none;
@@ -158,10 +162,6 @@
     font-family: $font-regular;
     margin: 8px 0;
   }
-}
-
-.check-all {
-  font-family: $font-bold;
 }
 
 .content_startbtn {
