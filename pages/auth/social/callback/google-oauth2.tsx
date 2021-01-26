@@ -226,7 +226,7 @@ const Callback = () => {
                   <FontAwesomeIcon icon={faCheck} className="icon" />
                 </div>
                 개인정보 수집•이용 동의
-                <div className="option" style={{ color: "#4B6580" }}>
+                <div className="option">
                   (필수)
                 </div>
               </label>

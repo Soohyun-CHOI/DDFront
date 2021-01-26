@@ -76,92 +76,92 @@
   margin-top: 0.5rem;
 }
 
-.callback-notice-wrap {
+.callback_noticeWrap {
   width: 30vw;
   margin-left: 6rem;
   padding-left: 3rem;
   border-left: 1px solid #dcdcdc;
 }
 
-.callback-notice {
+.callback_notice {
   margin-bottom: 1rem;
   font-family: $font-light;
   font-size: 0.9rem;
   color: $color-black;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"]:checked + label .icon-wrap {
+    border: 2px solid $color-blue;
+    background-color: $color-blue;
+    color: white;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .icon-wrap {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 24px;
+    margin-right: 5px;
+    border: 2px solid #c0c0c0;
+    border-radius: 100px;
+    color: #c0c0c0;
+
+    .icon {
+      font-size: 10px;
+    }
+  }
+
+  .option {
+    margin-left: 3px;
+    font-family: $font-bold;
+    font-size: 0.75rem;
+    color: $color-blue;
+  }
+
+  .text {
+    width: 30vw;
+    height: 100px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-top: 0.5rem;
+
+    border: 1px solid $color-blue;
+    border-radius: 3px;
+    background-color: rgba(90, 156, 161, 0.1);
+
+    font-family: $font-light;
+    font-size: 0.75rem;
+    color: $color-black;
+
+    overflow-y: scroll;
+  }
+
+  .text-title {
+    font-family: $font-regular;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+
+  .text-subtitle {
+    font-family: $font-regular;
+    margin: 8px 0;
+  }
 }
 
 .check-all {
   font-family: $font-bold;
-}
-
-input[type="checkbox"] {
-  display: none;
-}
-
-input[type="checkbox"]:checked + label .icon-wrap {
-  border: 2px solid $color-blue;
-  background-color: $color-blue;
-  color: white;
-}
-
-label {
-  display: flex;
-  align-items: center;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.icon-wrap {
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  line-height: 24px;
-  margin-right: 5px;
-  border: 2px solid #c0c0c0;
-  border-radius: 100px;
-  color: #c0c0c0;
-}
-
-i {
-  font-size: 10px;
-}
-
-.option {
-  margin-left: 3px;
-  font-family: $font-bold;
-  font-size: 0.75rem;
-  color: $color-blue;
-}
-
-.text {
-  width: 30vw;
-  height: 100px;
-  padding: 15px;
-  box-sizing: border-box;
-  margin-top: 0.5rem;
-
-  border: 1px solid $color-blue;
-  border-radius: 3px;
-  background-color: rgba(90, 156, 161, 0.1);
-
-  font-family: $font-light;
-  font-size: 0.75rem;
-  color: $color-black;
-
-  overflow-y: scroll;
-}
-
-.text-title {
-  font-family: $font-regular;
-  font-size: 0.8rem;
-  margin-bottom: 10px;
-}
-
-.text-subtitle {
-  font-family: $font-regular;
-  margin: 8px 0;
 }
 
 .content_startbtn {
