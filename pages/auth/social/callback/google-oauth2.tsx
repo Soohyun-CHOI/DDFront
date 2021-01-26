@@ -1,11 +1,11 @@
 import qs from "qs";
-import {useEffect, useState} from "react";
-import "styles/callback.scss";
+import { useEffect, useState } from "react";
+// import "./styles/callback.scss";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import {faCheck} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {api, socialProfileSubmit} from "../../../../src/services/api";
-import {useRouter} from "next/router";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { api, socialProfileSubmit } from "../../../../src/services/api";
+import { useRouter } from "next/router";
 
 const Callback = () => {
   const router = useRouter();
@@ -122,11 +122,11 @@ const Callback = () => {
 
     const getToken = async () => {
       const result = await api.post(
-          `api/login/social/jwt-sliding-user/${provider}`,
-          {
-            provider,
-            code,
-          }
+        `api/login/social/jwt-sliding-user/${provider}`,
+        {
+          provider,
+          code,
+        }
       );
       // 이메일을 소셜 페이지로부터 가져온 후 없을 경우 이메일을 입력받는다.
       setEmail(result.data.email);
@@ -134,12 +134,12 @@ const Callback = () => {
         setIsEmailAllowed(false);
       }
       await setToken(result.data.token);
-      const header = {Authorization: `Bearer ${result.data.token}`};
+      const header = { Authorization: `Bearer ${result.data.token}` };
 
       const checkHasProfile = await api.post(
-          "api/v1/users/has_profile/",
-          {},
-          {headers: header}
+        "api/v1/users/has_profile/",
+        {},
+        { headers: header }
       );
       const hasProfile = checkHasProfile.data.hasProfile;
 
@@ -154,135 +154,131 @@ const Callback = () => {
   };
 
   return showRender ? (
-      <div className="container">
-        <div className="illust_wrap">
-          <img src="/public/images/submit_before.jpg" alt="ex" width="300"/>
-          <div className="content_title">
-            닉네임을 설정하고 바로 시작해 보세요!
-          </div>
-        </div>
-
-        <div className="body">
-          <div className="content_wrap">
-            <div className="content_inputSection">
-              <div className="content_inputWrap">
-                <input
-                    type="text"
-                    className="content_input"
-                    onChange={checkNickname}
-                />
-              </div>
-              <div
-                  className="content_checkDupbtn"
-                  onClick={checkDuplication}
-              >
-                중복 확인
-              </div>
-            </div>
-            {isCheckBtnClicked && checkResult === "사용 가능한 닉네임입니다." ? (
-                <div className="check_resultTrue">{checkResult}</div>
-            ) : (
-                <div className="check_resultFalse">{checkResult}</div>
-            )}
-          </div>
-
-          <div className="callback_noticeWrap">
-            <div className="callback_notice check-all">
-              <input
-                  id="check-all"
-                  type="checkbox"
-                  checked={consent1 && consent2}
-                  onChange={() => {
-                    if (!(consent1 && consent2)) {
-                      setConsent1(true);
-                      setConsent2(true);
-                    } else {
-                      setConsent1(false);
-                      setConsent2(false);
-                    }
-                  }}
-              />
-              <label htmlFor="check-all">
-                <div className="icon-wrap">
-                  <FontAwesomeIcon icon={faCheck} className="icon"/>
-                </div>
-                전체 동의
-              </label>
-            </div>
-
-            <div className="callback-notice">
-              <div className="checkbox">
-                <input
-                    type="checkbox"
-                    id="consent1"
-                    checked={consent1}
-                    onChange={() => {
-                      if (consent1) {
-                        setConsent1(false);
-                      } else {
-                        setConsent1(true);
-                      }
-                    }}
-                />
-                <label htmlFor="consent1">
-                  <div className="icon-wrap">
-                    <FontAwesomeIcon icon={faCheck} className="icon"/>
-                  </div>
-                  개인정보 수집•이용 동의
-                  <div className="option" style={{color: "#4B6580"}}>
-                    (필수)
-                  </div>
-                </label>
-              </div>
-              <div className="text">
-                <div className="text-title">개인정보 수집•이용 동의서</div>
-                다올은 홈페이지 회원가입 및 관리, 서비스 제공, 고충처리 등을
-                위하여 아래와 같이 개인정보를 수집•이용하고자 합니다.
-                <br/>
-                <div className="text-subtitle">개인정보 수집•이용 내역</div>
-                <span>수집•이용 항목: </span>아이디, 이메일, 닉네임
-                <br/>
-                <span>수집•이용 목적: </span>
-                <br/>
-                ①홈페이지 회원 가입 및 관리 ②대회 결과 및 상금 공고 안내
-                <br/>
-                <span>보유기간: </span>홈페이지 탈퇴 시까지
-              </div>
-            </div>
-
-            <div className="callback-notice">
-              <div className="checkbox">
-                <input
-                    type="checkbox"
-                    id="consent2"
-                    checked={consent2}
-                    onChange={() => {
-                      if (consent2) {
-                        setConsent2(false);
-                      } else {
-                        setConsent2(true);
-                      }
-                    }}
-                />
-                <label htmlFor="consent2">
-                  <div className="icon-wrap">
-                    <FontAwesomeIcon icon={faCheck} className="icon"/>
-                  </div>
-                  마케팅 정 수신 동의
-                  <div className="option" style={{color: "#c8c8c8"}}>
-                    (선택)
-                  </div>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="content_startbtn" onClick={submit}>
-          시작하기
+    <div className="container">
+      <div className="illust_wrap">
+        <img src="/images/submit_before.jpg" alt="ex" width="300" />
+        <div className="content_title">
+          닉네임을 설정하고 바로 시작해 보세요!
         </div>
       </div>
+
+      <div className="body">
+        <div className="content_wrap">
+          <div className="content_inputSection">
+            <div className="content_inputWrap">
+              <input
+                type="text"
+                className="content_input"
+                onChange={checkNickname}
+              />
+            </div>
+            <div className="content_checkDupbtn" onClick={checkDuplication}>
+              중복 확인
+            </div>
+          </div>
+          {isCheckBtnClicked && checkResult === "사용 가능한 닉네임입니다." ? (
+            <div className="check_resultTrue">{checkResult}</div>
+          ) : (
+            <div className="check_resultFalse">{checkResult}</div>
+          )}
+        </div>
+
+        <div className="callback_noticeWrap">
+          <div className="callback_notice check-all">
+            <input
+              id="check-all"
+              type="checkbox"
+              checked={consent1 && consent2}
+              onChange={() => {
+                if (!(consent1 && consent2)) {
+                  setConsent1(true);
+                  setConsent2(true);
+                } else {
+                  setConsent1(false);
+                  setConsent2(false);
+                }
+              }}
+            />
+            <label htmlFor="check-all">
+              <div className="icon-wrap">
+                <FontAwesomeIcon icon={faCheck} className="icon" />
+              </div>
+              전체 동의
+            </label>
+          </div>
+
+          <div className="callback-notice">
+            <div className="checkbox">
+              <input
+                type="checkbox"
+                id="consent1"
+                checked={consent1}
+                onChange={() => {
+                  if (consent1) {
+                    setConsent1(false);
+                  } else {
+                    setConsent1(true);
+                  }
+                }}
+              />
+              <label htmlFor="consent1">
+                <div className="icon-wrap">
+                  <FontAwesomeIcon icon={faCheck} className="icon" />
+                </div>
+                개인정보 수집•이용 동의
+                <div className="option" style={{ color: "#4B6580" }}>
+                  (필수)
+                </div>
+              </label>
+            </div>
+            <div className="text">
+              <div className="text-title">개인정보 수집•이용 동의서</div>
+              다올은 홈페이지 회원가입 및 관리, 서비스 제공, 고충처리 등을
+              위하여 아래와 같이 개인정보를 수집•이용하고자 합니다.
+              <br />
+              <div className="text-subtitle">개인정보 수집•이용 내역</div>
+              <span>수집•이용 항목: </span>아이디, 이메일, 닉네임
+              <br />
+              <span>수집•이용 목적: </span>
+              <br />
+              ①홈페이지 회원 가입 및 관리 ②대회 결과 및 상금 공고 안내
+              <br />
+              <span>보유기간: </span>홈페이지 탈퇴 시까지
+            </div>
+          </div>
+
+          <div className="callback-notice">
+            <div className="checkbox">
+              <input
+                type="checkbox"
+                id="consent2"
+                checked={consent2}
+                onChange={() => {
+                  if (consent2) {
+                    setConsent2(false);
+                  } else {
+                    setConsent2(true);
+                  }
+                }}
+              />
+              <label htmlFor="consent2">
+                <div className="icon-wrap">
+                  <FontAwesomeIcon icon={faCheck} className="icon" />
+                </div>
+                마케팅 정 수신 동의
+                <div className="option" style={{ color: "#c8c8c8" }}>
+                  (선택)
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="content_startbtn" onClick={submit}>
+        시작하기
+      </div>
+    </div>
   ) : null;
 };
 
 export default Callback;
-

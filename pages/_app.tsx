@@ -1,4 +1,5 @@
 import "../styles/globals.scss";
+import "../pages/auth/social/callback/styles/callback.scss";
 import { AppProps } from "next/app";
 import Layout from "../src/components/common/Layout";
 import Head from "next/head";

@@ -1,4 +1,4 @@
-@import "styles/globals";
+@import "../../../../../styles/globals.scss";
 
 .container {
   @include flex-col-box;
@@ -94,11 +94,11 @@
   font-family: $font-bold;
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
   display: none;
 }
 
-input[type=checkbox]:checked + label .icon-wrap {
+input[type="checkbox"]:checked + label .icon-wrap {
   border: 2px solid $color-blue;
   background-color: $color-blue;
   color: white;
