@@ -16,7 +16,6 @@ const matchBannerContent = (project: string) => {
           <img
               src={`${BannerContentObj.imgsrc}`}
               alt="ex"
-              width="100%"
               height="100%"
           />
         </div>

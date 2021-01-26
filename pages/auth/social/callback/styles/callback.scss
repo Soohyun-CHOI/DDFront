@@ -1,0 +1,172 @@
+@import "styles/globals";
+
+.container {
+  @include flex-col-box;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.illust_wrap {
+  text-align: center;
+}
+
+.content_title {
+  font-family: $font-bold;
+  font-size: 2rem;
+  color: $color-black;
+  margin: 1rem 0 3rem;
+}
+
+.body {
+  @include flex-box;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.content_inputSection {
+  display: flex;
+  align-items: center;
+}
+
+.content_input {
+  width: 20vw;
+  height: 2.5rem;
+  border: $border;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 3px 10px;
+
+  font-family: $font-light;
+  font-size: 1rem;
+  color: $color-black;
+}
+
+.content_input:focus {
+  outline: none;
+}
+
+.checkDupbtn {
+  margin-left: 0.75rem;
+  padding: 6px 12px;
+  border: $border;
+  border-radius: 100px;
+  font-family: "NEXON Lv2 Gothic Bold", sans-serif;
+  font-size: 0.8rem;
+  color: #c0c0c0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.check_resultTrue {
+  font-family: $font-light;
+  font-size: 0.8rem;
+  color: $color-blue;
+  margin-top: 0.5rem;
+}
+
+.check_resultFalse {
+  font-family: $font-light;
+  font-size: 0.8rem;
+  color: $color-red;
+  margin-top: 0.5rem;
+}
+
+.callback-notice-wrap {
+  width: 30vw;
+  margin-left: 6rem;
+  padding-left: 3rem;
+  border-left: 1px solid #dcdcdc;
+}
+
+.callback-notice {
+  margin-bottom: 1rem;
+  font-family: $font-light;
+  font-size: 0.9rem;
+  color: $color-black;
+}
+
+.check-all {
+  font-family: $font-bold;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox]:checked + label .icon-wrap {
+  border: 2px solid $color-blue;
+  background-color: $color-blue;
+  color: white;
+}
+
+label {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.icon-wrap {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 24px;
+  margin-right: 5px;
+  border: 2px solid #c0c0c0;
+  border-radius: 100px;
+  color: #c0c0c0;
+}
+
+i {
+  font-size: 10px;
+}
+
+.option {
+  margin-left: 3px;
+  font-family: $font-bold;
+  font-size: 0.75rem;
+  color: $color-blue;
+}
+
+.text {
+  width: 30vw;
+  height: 100px;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+
+  border: 1px solid $color-blue;
+  border-radius: 3px;
+  background-color: rgba(90, 156, 161, 0.1);
+
+  font-family: $font-light;
+  font-size: 0.75rem;
+  color: $color-black;
+
+  overflow-y: scroll;
+}
+
+.text-title {
+  font-family: $font-regular;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.text-subtitle {
+  font-family: $font-regular;
+  margin: 8px 0;
+}
+
+.content_startbtn {
+  @include button-blue;
+  margin-top: 3rem;
+  font-size: 1.25rem;
+  padding: 13px 30px;
+}
